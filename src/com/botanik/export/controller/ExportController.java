@@ -17,15 +17,17 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import com.botanik.logger.Logger;
 
 /**
  *
@@ -46,10 +48,10 @@ public class ExportController {
     public ExportController() {
         gen_id = genId();
     }
- 
+
     private void loadData() {
         List<ExportModel> list = dao.getExportModel();
- 
+
         for (int i = 0; i < list.size(); i++) {
             CollectionExport ce = list.get(i).getCollectionExport();
             PlantExport pe = list.get(i).getPlantExport();
@@ -73,13 +75,13 @@ public class ExportController {
     }
 
     private void prepare() {
-        final String dir = System.getProperty("user.dir");
-        Logger logger = Logger.getLogger("Mylog");
+//        final String dir = System.getProperty("user.dir");
+//        Logger logger = Logger.getLogger("Mylog");
         try {
-            FileHandler fh = new FileHandler(dir + "/slog.txt");           
-            logger.addHandler(fh);
+//            FileHandler fh = new FileHandler(dir + "/slog.txt");           
+//            logger.addHandler(fh);
 
-            logger.log(Level.INFO, "preparing method");
+            Logger.save("preparing method");
             loadData();
             headerMap();
             subHeaderMap();
@@ -201,7 +203,7 @@ public class ExportController {
 //
 //        // Assign the comment to the cell
 //        cell.setCellComment(comment);
-        } catch (IOException | SecurityException ex) {
+        } catch (SecurityException ex) {
 //            logger.log( ex.getMessage());
         }
     }
@@ -227,56 +229,45 @@ public class ExportController {
 
     private void writeToExcel() {
         prepare();
-//        mergeCell();
-//        Set<String> keyset = data1.keySet();
-//
-//        int rownum = 4;
-//        for (String key : keyset) {
-//            Row row1 = sheet.createRow(rownum++);
-//            Object[] objArr = data1.get(key);
-//            int cellnum = 0;
-//            for (Object obj : objArr) {
-//
-//                Cell cell11 = row1.createCell(cellnum++);
-//                if (obj instanceof String) {
-//                    cell11.setCellValue((String) obj);
-//
-//                } else if (obj instanceof Integer) {
-//                    cell11.setCellValue((Integer) obj);
-//                }
-//            }
-//        }
-//        makeRowHeight();
+        mergeCell();
+        Set<String> keyset = data1.keySet();
+
+        int rownum = 4;
+        for (String key : keyset) {
+            Row row1 = sheet.createRow(rownum++);
+            Object[] objArr = data1.get(key);
+            int cellnum = 0;
+            for (Object obj : objArr) {
+
+                Cell cell11 = row1.createCell(cellnum++);
+                if (obj instanceof String) {
+                    cell11.setCellValue((String) obj);
+
+                } else if (obj instanceof Integer) {
+                    cell11.setCellValue((Integer) obj);
+                }
+            }
+        }
+        makeRowHeight();
     }
 
     public void export() {
-        final String dir = System.getProperty("user.dir");
-        Logger logger = Logger.getLogger("Mylog");
         try {
-
-            FileHandler fh = new FileHandler(dir + "/slog.txt");
-
             writeToExcel();
-            logger.addHandler(fh);
-
-            logger.log(Level.INFO, "export method started this folder {0}", dir);
             try (FileOutputStream fileOut = new FileOutputStream(fileName())) {
-
                 workbook.write(fileOut);
-                logger.log(Level.INFO, "file wrote created{0} ", dir);
                 fileOut.close();
-
                 workbook.close();
             }
             try {
-                logger.log(Level.INFO, "trying open {0} ", fileName());
+                Logger.save(fileName());
                 Desktop.getDesktop().open(new File(fileName()));
             } catch (IOException e) {
-                logger.log(Level.INFO, "file name created{0}", e);
+                Logger.save(e.getMessage());
             }
 
         } catch (IOException | SecurityException ex) {
-            logger.log(Level.INFO, "export method {0}", ex);
+            Logger.save(ex.getMessage());
         }
     }
 
@@ -295,18 +286,11 @@ public class ExportController {
 //        return "c:/test/" + genId() + ".xlsx";
 //    }
     private String fileName() throws IOException {
-
         final String dir = System.getProperty("user.dir");
-        Logger logger = Logger.getLogger("Mylog");
-        FileHandler fh = new FileHandler(dir + "/slog.txt");
-
-        System.out.println("current dir = " + dir);
         String cur_dir = dir + "/" + gen_id + ".xls";
         System.out.println("cur_dir " + cur_dir);
-        logger.addHandler(fh);
-        logger.log(Level.INFO, "file name created{0}", cur_dir);
+        Logger.save(cur_dir);
         return cur_dir;
-//        return "c:/test/" + gen_id + ".xlsx";
     }
 
     private Row createRow(short index) {
