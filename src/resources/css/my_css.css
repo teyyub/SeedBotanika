@@ -1,0 +1,6 @@
+.dialog-body {    
+    -fx-background-color: linear-gradient(#ffffee 50%, white 100%) ;    
+    -fx-border-width:2;
+    -fx-border-color:grey;
+    -fx-border-radius:0 0 15 15;
+}

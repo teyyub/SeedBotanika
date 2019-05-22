@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-05-20T14:59:08</date>
+  <millis>1558349948587</millis>
+  <sequence>0</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.export.controller.ExportController</class>
+  <method>export</method>
+  <thread>14</thread>
+  <message>export method started this folder C:\Users\USER\Desktop\flash\SeedBotanika8\SeedBotanika</message>
+</record>
+<record>
+  <date>2019-05-20T14:59:08</date>
+  <millis>1558349948590</millis>
+  <sequence>1</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.export.controller.ExportController</class>
+  <method>fileName</method>
+  <thread>14</thread>
+  <message>file name createdC:\Users\USER\Desktop\flash\SeedBotanika8\SeedBotanika/1558349945515.xls</message>
+</record>
+<record>
+  <date>2019-05-20T14:59:08</date>
+  <millis>1558349948678</millis>
+  <sequence>2</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.export.controller.ExportController</class>
+  <method>export</method>
+  <thread>14</thread>
+  <message>file wrote createdC:\Users\USER\Desktop\flash\SeedBotanika8\SeedBotanika </message>
+</record>
+<record>
+  <date>2019-05-20T14:59:08</date>
+  <millis>1558349948683</millis>
+  <sequence>3</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.export.controller.ExportController</class>
+  <method>fileName</method>
+  <thread>14</thread>
+  <message>file name createdC:\Users\USER\Desktop\flash\SeedBotanika8\SeedBotanika/1558349945515.xls</message>
+</record>
+<record>
+  <date>2019-05-20T14:59:08</date>
+  <millis>1558349948683</millis>
+  <sequence>4</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.export.controller.ExportController</class>
+  <method>export</method>
+  <thread>14</thread>
+  <message>trying open C:\Users\USER\Desktop\flash\SeedBotanika8\SeedBotanika/1558349945515.xls </message>
+</record>
+<record>
+  <date>2019-05-20T14:59:08</date>
+  <millis>1558349948801</millis>
+  <sequence>5</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.export.controller.ExportController</class>
+  <method>fileName</method>
+  <thread>14</thread>
+  <message>file name createdC:\Users\USER\Desktop\flash\SeedBotanika8\SeedBotanika/1558349945515.xls</message>
+</record>
+<record>
+  <date>2019-05-20T14:59:08</date>
+  <millis>1558349948849</millis>
+  <sequence>6</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.export.controller.ExportController</class>
+  <method>export</method>
+  <thread>14</thread>
+  <message>export method C:\Users\USER\Desktop\flash\SeedBotanika8\SeedBotanika</message>
+</record>

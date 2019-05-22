@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="1054.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.botanik.controller.MainController">
+   <children>
+      <TabPane fx:id="tab" layoutX="14.0" layoutY="40.0" prefHeight="632.0" prefWidth="1054.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab onSelectionChanged="#handleTab" text="Plant Data">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="609.0" prefWidth="924.0">
+                     <children>
+                        <GridPane layoutY="-4.0" prefHeight="589.0" prefWidth="795.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="0.0" prefWidth="0.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="328.0" minWidth="6.0" prefWidth="6.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="328.0" minWidth="10.0" prefWidth="173.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="312.0" minWidth="10.0" prefWidth="170.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="369.0" minWidth="10.0" prefWidth="65.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="369.0" minWidth="10.0" prefWidth="15.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="343.0" minWidth="10.0" prefWidth="147.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.0" minWidth="10.0" prefWidth="159.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.0" minWidth="10.0" prefWidth="64.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Family" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Label text="Taxon" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Label text="Azerbaijan bane" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                              <Label text="Rank" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                              <Label text="Infra-Specific Species" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+                              <Label text="Infra-Specific Author" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+                              <Label text="Rank 2" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
+                              <Label text="Identification Status" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="13" />
+                              <Label text="Identifier's Name and  Institute" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
+                              <Label text="Plant Description" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="15" />
+                              <Label text="Uses" wrapText="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Label text="Vernacular Name" wrapText="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Label text="Assessment Information" wrapText="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                              <Label text="Other Key Information" wrapText="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                              <Label text="Plant Form" wrapText="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                              <Label text="Infra-Specific Species 2 " wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
+                              <Label text="Infra-Specific Author 2" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
+                              <Label text="Identified From" wrapText="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+                              <Label text="Identification Date" wrapText="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+                              <Label text="Plant Height" wrapText="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
+                              <ComboBox fx:id="familyCb" editable="true" prefHeight="25.0" prefWidth="171.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                              <ComboBox fx:id="genusCb" editable="true" prefHeight="25.0" prefWidth="171.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                              <ComboBox fx:id="speciesAuthorCb" editable="true" prefHeight="25.0" prefWidth="171.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                              <ComboBox fx:id="rankCb" editable="true" prefHeight="25.0" prefWidth="169.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                              <ComboBox fx:id="infraSpeciesCb" editable="true" prefHeight="25.0" prefWidth="173.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+                              <ComboBox fx:id="infraAuthorCb" editable="true" prefHeight="25.0" prefWidth="170.0" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                              <ComboBox fx:id="rankCb2" editable="true" prefHeight="25.0" prefWidth="169.0" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+                              <ComboBox fx:id="identificationStatusCb" editable="true" prefHeight="25.0" prefWidth="175.0" GridPane.columnIndex="3" GridPane.rowIndex="13" />
+                              <ComboBox fx:id="identifierInstituteCb" editable="true" prefHeight="25.0" prefWidth="173.0" GridPane.columnIndex="3" GridPane.rowIndex="14" />
+                              <ComboBox fx:id="usesCb" editable="true" prefHeight="25.0" prefWidth="172.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                              <ComboBox fx:id="vernacularNameCb" editable="true" prefHeight="25.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+                              <ComboBox fx:id="assessmentInformationCb" editable="true" prefHeight="25.0" prefWidth="175.0" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+                              <ComboBox fx:id="otherKeyCb" editable="true" prefHeight="25.0" prefWidth="177.0" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+                              <ComboBox fx:id="plantFromCb" editable="true" prefHeight="25.0" prefWidth="173.0" GridPane.columnIndex="7" GridPane.rowIndex="7" />
+                              <ComboBox fx:id="infraSpecies2Cb" editable="true" prefHeight="25.0" prefWidth="177.0" GridPane.columnIndex="3" GridPane.rowIndex="11" />
+                              <ComboBox fx:id="infraAuthor2Cb" editable="true" prefHeight="25.0" prefWidth="184.0" GridPane.columnIndex="3" GridPane.rowIndex="12" />
+                              <ComboBox fx:id="identifiedFromCb" editable="true" prefHeight="25.0" prefWidth="177.0" GridPane.columnIndex="7" GridPane.rowIndex="8" />
+                              <Button mnemonicParsing="false" onAction="#saveHandle" text="Save" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="16" />
+                              <Button mnemonicParsing="false" onAction="#addFamily" text="Add" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Button mnemonicParsing="false" onAction="#addGenus" text="Add" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Button mnemonicParsing="false" onAction="#addSpeciesAuthor" text="Add" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                              <Button mnemonicParsing="false" onAction="#addRank" text="Add" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                              <Button mnemonicParsing="false" onAction="#addInfraSpecies" text="Add" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+                              <Button mnemonicParsing="false" onAction="#addInfraAuthor" text="Add" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+                              <Button mnemonicParsing="false" onAction="#addRank2" text="Add" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
+                              <Button mnemonicParsing="false" onAction="#addIdentificationStatus" text="Add" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="13" />
+                              <Button mnemonicParsing="false" onAction="#addIdentifierNameInstitute" text="Add" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="14" />
+                              <Button mnemonicParsing="false" text="Add" visible="false" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="15" />
+                              <Button mnemonicParsing="false" onAction="#addUses" text="Add" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Button mnemonicParsing="false" onAction="#addVernacularName" text="Add" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Button mnemonicParsing="false" onAction="#addAssesInfor" text="Add" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                              <Button mnemonicParsing="false" onAction="#addOtherKey" text="Add" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                              <Button mnemonicParsing="false" onAction="#addInfraSpecies2" text="Add" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
+                              <Button mnemonicParsing="false" onAction="#addPlantForm" text="Add" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                              <Button mnemonicParsing="false" onAction="#addInfAutor2" text="Add" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
+                              <Button mnemonicParsing="false" onAction="#addIdentFrom" text="Add" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+                              <Button mnemonicParsing="false" text="Add" visible="false" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
+                              <Button mnemonicParsing="false" text="Add" visible="false" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="15" />
+                              <TextField fx:id="heightTextField" GridPane.columnIndex="7" GridPane.rowIndex="10" />
+                              <DatePicker fx:id="identDate" GridPane.columnIndex="7" GridPane.rowIndex="9" />
+                              <Label text="Pland and Identification" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Id" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <TextField fx:id="seedIdTextField" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <Button mnemonicParsing="false" onAction="#editFamily" prefHeight="25.0" prefWidth="57.0" text="..." visible="false" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                              <TextArea fx:id="plantDescTextArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.rowIndex="15" GridPane.rowSpan="2" />
+                              <Label text="Synonyms" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                              <ComboBox fx:id="speciesCb" editable="true" prefHeight="25.0" prefWidth="171.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                              <Button mnemonicParsing="false" onAction="#addSpecies" text="Add" visible="false" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                        <ImageView fx:id="seedImage" fitHeight="224.0" fitWidth="238.0" layoutX="806.0" layoutY="102.0" pickOnBounds="true" smooth="false">
+                           <image>
+                              <Image url="@../../../image/no_image.jpg" />
+                           </image>
+                        </ImageView>
+                        <Button layoutX="946.0" layoutY="382.0" mnemonicParsing="false" onAction="#download" text="Download" />
+                        <Button layoutX="838.0" layoutY="382.0" mnemonicParsing="false" onAction="#upload" prefHeight="25.0" prefWidth="76.0" text="Upload" />
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="825.0" layoutY="426.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../image/no_image.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+          </Tab>
+          <Tab onSelectionChanged="#handleTab" text="Collection Data">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutY="-3.0" prefHeight="297.0" prefWidth="1019.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="0.0" prefWidth="30.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="228.0" minWidth="10.0" prefWidth="113.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="319.0" minWidth="10.0" prefWidth="214.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="319.0" minWidth="10.0" prefWidth="28.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="344.0" minWidth="10.0" prefWidth="204.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="0.0" prefWidth="161.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="340.0" minWidth="10.0" prefWidth="54.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="232.0" minWidth="10.0" prefWidth="52.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="232.0" minWidth="10.0" prefWidth="55.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="232.0" minWidth="0.0" prefWidth="36.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="67.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="67.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="67.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="124.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="106.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="106.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label prefHeight="34.0" prefWidth="76.0" text="Collection Number" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Label prefHeight="51.0" prefWidth="128.0" text="Organisation/Institute" wrapText="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Label text="Wild or Cultivates" wrapText="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Label prefHeight="34.0" prefWidth="202.0" text="Main Collector's Name &amp; Institute" wrapText="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <ComboBox fx:id="organisationCb" editable="true" prefHeight="25.0" prefWidth="280.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="wildCb" editable="true" prefHeight="25.0" prefWidth="278.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                              <ComboBox fx:id="collectorCb" editable="true" prefHeight="25.0" prefWidth="281.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                              <Label text="Project Name" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Label text="Accession Number" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Label text="Date Collected" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                              <TextField fx:id="collectionNumberTextField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <TextField fx:id="nameField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <TextField fx:id="accessionTextField" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <DatePicker fx:id="dateCollected" prefHeight="25.0" prefWidth="233.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <Label prefHeight="40.0" prefWidth="331.0" text="Collection" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <Button mnemonicParsing="false" onAction="#addOrganisationCombo" text="Add" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Button mnemonicParsing="false" onAction="#addMainCollectorNameCombo" text="Add" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Button mnemonicParsing="false" text="Edit" visible="false" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" text="Edit" visible="false" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" text="Edit" visible="false" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" text="Delete" visible="false" GridPane.columnIndex="8" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" text="Delete" visible="false" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Button mnemonicParsing="false" text="Delete" visible="false" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Button mnemonicParsing="false" onAction="#saveHandle" text="Save" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+                              <Button mnemonicParsing="false" onAction="#addWildOrCultivatedCombo" text="Add" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+          </Tab>
+            <Tab onSelectionChanged="#handleTab" text="Location Data">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane prefHeight="463.0" prefWidth="883.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="5.0" prefWidth="5.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="228.0" minWidth="10.0" prefWidth="118.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="323.0" minWidth="10.0" prefWidth="231.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="235.0" minWidth="10.0" prefWidth="155.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="250.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="97.0" minWidth="10.0" prefWidth="35.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="97.0" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Altitude(m)" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                              <Label text="Grid Reference" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                              <Label text="Lat/Long Method" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Label text="Latitude N/S" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Label prefHeight="33.0" prefWidth="121.0" text="District/Region" wrapText="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Label text="Country" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Label text="Description of Location" wrapText="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Label text="Longitude E/W" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                              <Label text="Lat/Long Units" wrapText="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                              <Label text="GPS Datum" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                              <Label text="Altitude Method" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+                              <ComboBox fx:id="countryCb" editable="true" prefHeight="25.0" prefWidth="231.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <TextField fx:id="altitudeTextField" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                              <TextField fx:id="latitudeTextField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <TextField fx:id="latMethodTextField" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <TextField fx:id="gridTextField" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <TextField fx:id="longtitudeTextField" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                              <TextField fx:id="latUnitsTextField" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                              <TextField fx:id="gpsTextField" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                              <TextField fx:id="altitudeMethodTextField" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+                              <Label prefHeight="35.0" prefWidth="198.0" text="Location Data" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <Button mnemonicParsing="false" onAction="#saveHandle" text="Save" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="9" />
+                              <TextArea fx:id="descTextField" prefHeight="67.0" prefWidth="249.0" GridPane.columnIndex="4" GridPane.rowIndex="3" GridPane.rowSpan="2" />
+                              <ComboBox fx:id="stateCb" editable="true" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab onSelectionChanged="#handleTab" text="Habitat Data">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane prefHeight="363.0" prefWidth="1054.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="4.0" prefWidth="11.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="277.0" minWidth="10.0" prefWidth="149.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="381.0" minWidth="10.0" prefWidth="341.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="381.0" minWidth="10.0" prefWidth="107.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="209.0" minWidth="10.0" prefWidth="164.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="286.0" minWidth="10.0" prefWidth="257.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="10.0" prefWidth="69.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="10.0" prefWidth="50.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Habitat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Label text="Land Form" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Label text="Geology" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Label text="Aspect" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                              <Label text="Soil Type" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Label contentDisplay="CENTER" text="Factors Affecting  Habitat" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                              <Label text="Site Notes" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                              <Label prefHeight="40.0" prefWidth="100.0" text="Associated Species" wrapText="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Label text="Slope" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Label text="Land Use" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                              <TextField fx:id="geologyTextField" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <TextField fx:id="associatedSpeciesTextField" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                              <Label text="Habitat Data" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <Button mnemonicParsing="false" onAction="#saveHandle" text="Save" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
+                              <Button mnemonicParsing="false" onAction="#addHabitatCombo" text="Add" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="habitatCb" editable="true" prefHeight="25.0" prefWidth="336.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <Button mnemonicParsing="false" onAction="#addLandFormCombo" text="Add" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <ComboBox fx:id="landFormCb" editable="true" prefHeight="25.0" prefWidth="378.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <Button mnemonicParsing="false" onAction="#addAspectCombo" text="Add" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                              <Button mnemonicParsing="false" onAction="#addFactorsHabitatCombo" text="Add" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                              <TextArea fx:id="siteNotesTextArea" prefHeight="64.0" prefWidth="245.0" GridPane.columnIndex="5" GridPane.rowIndex="6" GridPane.rowSpan="2" />
+                              <Button mnemonicParsing="false" onAction="#addSoilTypeCombo" text="Add" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Button mnemonicParsing="false" onAction="#addSlopeCombo" text="Add" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Button mnemonicParsing="false" onAction="#addLandUseCombo" text="Add" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                              <ComboBox fx:id="aspectCb" editable="true" prefHeight="25.0" prefWidth="347.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <ComboBox fx:id="factorsCb" editable="true" prefHeight="25.0" prefWidth="327.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                              <ComboBox fx:id="soilTypeCb" editable="true" prefHeight="25.0" prefWidth="245.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="slopeCb" editable="true" prefHeight="25.0" prefWidth="254.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                              <ComboBox fx:id="landUseCb" editable="true" prefHeight="25.0" prefWidth="246.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab onSelectionChanged="#handleTab" text="Sampling Data">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane prefHeight="298.0" prefWidth="881.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="49.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="242.0" minWidth="10.0" prefWidth="162.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="227.0" minWidth="10.0" prefWidth="193.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.0" minWidth="10.0" prefWidth="179.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="319.0" minWidth="10.0" prefWidth="178.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0" prefWidth="19.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0" prefWidth="42.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="118.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="118.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="118.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="152.0" minHeight="0.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="178.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="178.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="178.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Number of Plant  Sample" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Label text="Number of Plant Found" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Label text="Sampling Notes" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                              <Label text="Area Sampled (m2)" wrapText="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </Label>
+                              <Label text="Percentage of Plants Producing Seed(%)  " wrapText="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="numberSampleTextField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <TextField fx:id="areaSampleTextField" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                              <TextField fx:id="numberFoodTextField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <TextField fx:id="percentageTextField" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                              <TextArea fx:id="noteTextArea" prefHeight="97.0" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="4" />
+                              <Label text="Sampling Data" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                              </Label>
+                              <Button mnemonicParsing="false" onAction="#saveHandle" text="Save" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab onSelectionChanged="#handleTab" text="Herbarium Specimen">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane prefHeight="306.0" prefWidth="881.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.0" minWidth="4.0" prefWidth="80.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="335.0" minWidth="10.0" prefWidth="201.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="410.0" minWidth="10.0" prefWidth="374.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="83.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="241.0" minWidth="10.0" prefWidth="144.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.0" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="76.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="43.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Herbarium Number" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label prefHeight="32.0" prefWidth="186.0" text="Location of Herbarium  Specimen " wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <CheckBox fx:id="isHerbarium" alignment="BOTTOM_CENTER" mnemonicParsing="false" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </CheckBox>
+                              <TextField fx:id="herbariumNumberTextField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <ComboBox fx:id="locationCb" editable="true" prefHeight="25.0" prefWidth="384.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <Label text="Herbarium Specimen" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                              </Label>
+                              <Button mnemonicParsing="false" onAction="#addLocationHerbariumCombo" prefHeight="25.0" prefWidth="69.0" text="Add" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Button mnemonicParsing="false" onAction="#saveHandle" text="Save" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
+                              <Label prefHeight="17.0" prefWidth="136.0" text="Herbarium Specimen" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="Dublicated" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Button mnemonicParsing="false" onAction="#addDublicated" prefHeight="25.0" prefWidth="70.0" text="Add" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                              <Label prefHeight="17.0" prefWidth="155.0" text="Herbarium Voucher" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <TextField fx:id="voucherTextField" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                              <Button mnemonicParsing="false" text="Download" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                              <TextField GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                              <ComboBox fx:id="dublicatedCb" editable="true" prefHeight="25.0" prefWidth="402.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab onSelectionChanged="#handleTab" text="Seed morphology">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane prefHeight="286.0" prefWidth="652.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="325.0" minWidth="10.0" prefWidth="44.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="325.0" minWidth="10.0" prefWidth="169.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="712.0" minWidth="10.0" prefWidth="215.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="699.0" minWidth="10.0" prefWidth="75.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="699.0" minWidth="10.0" prefWidth="133.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="699.0" minWidth="10.0" prefWidth="285.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="699.0" minWidth="10.0" prefWidth="66.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="699.0" minWidth="10.0" prefWidth="89.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="42.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Fruit size" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Label text="Fruit type" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Label text="Seed size" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Label text="Dispersal aids" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Label text="Seed configuration" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Label text="Type of Embrio" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                              <TextField fx:id="sizeTextField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="fruitTypeCb" editable="true" prefHeight="25.0" prefWidth="297.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                              <Label prefHeight="38.0" prefWidth="498.0" text="General Information  on Seed and Fruit" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="slengthTextField" prefHeight="25.0" prefWidth="208.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets left="50.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Label text="length" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <Label text="width" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <GridPane GridPane.columnIndex="5" GridPane.rowIndex="3">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="101.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="101.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.0" minWidth="10.0" prefWidth="86.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <TextField fx:id="swidthTextField" />
+                                    <TextField fx:id="sheightTextField" GridPane.columnIndex="2" />
+                                    <Label text="height" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                 </children>
+                              </GridPane>
+                              <TextField fx:id="configureTextfield" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                              <Button mnemonicParsing="false" onAction="#addFruitTypeCombo" text="Add" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Button mnemonicParsing="false" onAction="#saveHandle" text="Save" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+                              <Button mnemonicParsing="false" onAction="#addDispersalAidsCombo" text="Add" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Button mnemonicParsing="false" onAction="#addTypeOFEmrioCombo" text="Add" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                              <ComboBox fx:id="dispersalAidsCb" editable="true" prefHeight="25.0" prefWidth="238.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <ComboBox fx:id="embrioCb" editable="true" prefHeight="25.0" prefWidth="212.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab onSelectionChanged="#handleTab" text="Seed weight">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane prefHeight="337.0" prefWidth="775.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.0" minWidth="10.0" prefWidth="63.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="337.0" minWidth="10.0" prefWidth="172.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="587.0" minWidth="10.0" prefWidth="370.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="309.0" minWidth="10.0" prefWidth="123.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="344.0" minWidth="10.0" prefWidth="150.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="48.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="38.0" minHeight="0.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="96.0" minHeight="0.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Seed Weight" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <Label text=" 1000 Seed weight" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="100 Seed weight" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label text="Type of  material weight" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label text="Fruit weight with seed" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <TextField fx:id="weight_1000" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <TextField fx:id="weight_100" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <TextField fx:id="fruit_weight" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <Button mnemonicParsing="false" onAction="#saveHandle" text="Save" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                              <Button mnemonicParsing="false" onAction="#addTypeMaterialCombo" text="Add" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <ComboBox fx:id="typeWeightCb" editable="true" prefHeight="25.0" prefWidth="354.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <Label prefHeight="17.0" prefWidth="131.0" text="Seed  perfruit" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <TextArea fx:id="perfruitTextField" prefHeight="88.0" prefWidth="371.0" GridPane.columnIndex="2" GridPane.rowIndex="6" GridPane.rowSpan="2" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
