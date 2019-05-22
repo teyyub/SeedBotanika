@@ -5,6 +5,7 @@ import com.botanik.Seed;
 import com.botanik.dao.impl.SearchDAOJDBC;
 import com.botanik.dao.intf.SearchDAO;
 import com.botanik.export.controller.ExportController;
+import com.botanik.logger.Logger;
 import com.botanik.model.DefaultDate;
 import com.botanik.model.LocalIcon;
 import com.botanik.model.Search;
@@ -14,8 +15,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -188,7 +188,7 @@ public class SearchController {
                 try {
                     editForRegularUser(model.getSeedId());
                 } catch (Exception ex) {
-                    Logger.getLogger(SearchController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.save(ex.getMessage());
                 }
             } else {
 
@@ -240,7 +240,7 @@ public class SearchController {
 
     private void loadFirstPage() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Seed.class.getResource("view/access_first.fxml"));       
+        loader.setLocation(Seed.class.getResource("view/access_first.fxml"));
         AnchorPane anchorLayout = (AnchorPane) loader.load();
         Scene scene = new Scene(anchorLayout);
         dialogStage = new Stage();
@@ -259,7 +259,7 @@ public class SearchController {
 
     @FXML
     private void search() {
-
+        Logger.save("started search");
         searchModel = new SearchModel();
 
         searchModel.setSeedId(checkInputField(idTextField.getText()));
@@ -405,13 +405,12 @@ public class SearchController {
         collectorText.clear();
     }
 
-private long genId() {
-    return System.currentTimeMillis();
-}
+    private long genId() {
+        return System.currentTimeMillis();
+    }
 
-private String fileName() {
-    return "c:/test/" + genId() + ".xlsx";
-}
+    private String fileName() {
+        return "c:/test/" + genId() + ".xlsx";
+    }
 
-   
 }
