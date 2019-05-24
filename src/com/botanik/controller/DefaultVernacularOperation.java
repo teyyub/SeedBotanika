@@ -5,6 +5,7 @@ import com.botanik.dao.impl.CombosDAOJDBC;
 import com.botanik.dao.intf.CombosDAO;
 import com.botanik.model.Base;
 import com.botanik.model.CollectionDataBase;
+import com.botanik.model.Combo;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -88,7 +89,8 @@ public class DefaultVernacularOperation {
         if ((nameText.getText().equals("")) || (nameText.getText().length() == 0)) {
             loadTable();
         } else {
-            vernaculars = baseDao.familyByName(nameText.getText());
+            Combo c = new Combo(11,nameText.getText());
+            vernaculars = baseDao.loadByCombo(c);
             vernacularList = FXCollections.observableArrayList(vernaculars);
             table.setItems(vernacularList);
             table.refresh();
