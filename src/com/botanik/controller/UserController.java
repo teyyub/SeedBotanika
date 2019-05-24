@@ -6,7 +6,6 @@ import com.botanik.dao.intf.UserDAO;
 import com.botanik.model.LocalIcon;
 import com.botanik.model.User;
 import java.io.IOException;
-import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -132,8 +131,9 @@ public class UserController {
 
             stage.setOnCloseRequest((WindowEvent we) -> {
                 try {
-                    loadFirstPage();
-                } catch (IOException ex) {
+                    loadAccessLayout();
+//                    loadFirstPage();
+                } catch (Exception ex) {
                     Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             });
@@ -159,11 +159,7 @@ public class UserController {
             stage.getIcons().add(new LocalIcon().getIcon());
             stage.show();
             stage.setOnCloseRequest((WindowEvent we) -> {
-                try {
-                    loadFirstPage();
-                } catch (IOException ex) {
-                    Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                loadAccessLayout();
             });
             Stage oldStage = (Stage) btnSearch.getScene().getWindow();
             oldStage.close();
@@ -191,7 +187,8 @@ public class UserController {
             stage.show();
             stage.setOnCloseRequest((WindowEvent we) -> {
                 try {
-                    loadFirstPage();
+                     loadFirstPage();
+//                    loadAccessLayout();
                 } catch (IOException ex) {
                     Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -255,8 +252,8 @@ public class UserController {
             stage.show();
             stage.setOnCloseRequest((WindowEvent we) -> {
                 try {
-                    loadFirstPage();
-                } catch (IOException ex) {
+                   loadAccessLayout();
+                } catch (Exception ex) {
                     Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             });
@@ -285,8 +282,8 @@ public class UserController {
             stage.show();
             stage.setOnCloseRequest((WindowEvent we) -> {
                 try {
-                    loadFirstPage();
-                } catch (IOException ex) {
+                    loadAccessLayout();
+                } catch (Exception ex) {
                     Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             });
@@ -308,6 +305,34 @@ public class UserController {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+    }
+
+    private void loadAccessLayout() {
+        try {
+            // Load root layout from fxml file.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Seed.class.getResource("view/access_first.fxml"));
+
+//            loader.setLocation(Seed.class.getResource("view/splash.fxml"));
+            anchorLayout = (AnchorPane) loader.load();
+            Scene scene = new Scene(anchorLayout);
+
+            stage = new Stage();
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.getIcons().add(new LocalIcon().getIcon());
+            stage.show();
+ 
+
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(dialogStage);
+
+            alert.setHeaderText("Information");
+            alert.setContentText(e.getMessage());
+
+            alert.showAndWait();
+        }
     }
 
     public void initAccessLayout() throws Exception {
