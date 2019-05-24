@@ -5,6 +5,7 @@ import com.botanik.dao.impl.CombosDAOJDBC;
 import com.botanik.dao.intf.CombosDAO;
 import com.botanik.model.Base;
 import com.botanik.model.CollectionDataBase;
+import com.botanik.model.Combo;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -88,7 +89,8 @@ public class DefaultInfraAuthorOperation {
         if ((nameText.getText().equals("")) || (nameText.getText().length() == 0)) {
             loadTable();
         } else {
-            infraAuthors = baseDao.familyByName(nameText.getText());
+            Combo c = new Combo(6,nameText.getText());
+            infraAuthors = baseDao.loadByCombo(c);
             infraAuthorList = FXCollections.observableArrayList(infraAuthors);
             table.setItems(infraAuthorList);
             table.refresh();
