@@ -5,6 +5,7 @@ import com.botanik.dao.impl.CombosDAOJDBC;
 import com.botanik.dao.intf.CombosDAO;
 import com.botanik.model.Base;
 import com.botanik.model.CollectionDataBase;
+import com.botanik.model.Combo;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -88,7 +89,8 @@ public class DefaultPlantFormOperation {
         if ((nameText.getText().equals("")) || (nameText.getText().length() == 0)) {
             loadTable();
         } else {
-            plants = baseDao.familyByName(nameText.getText());
+            Combo c = new Combo(14,nameText.getText());
+            plants = baseDao.loadByCombo(c);
             plantFormList = FXCollections.observableArrayList(plants);
             table.setItems(plantFormList);
             table.refresh();
