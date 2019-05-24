@@ -5,6 +5,7 @@ import com.botanik.dao.impl.CombosDAOJDBC;
 import com.botanik.dao.intf.CombosDAO;
 import com.botanik.model.Base;
 import com.botanik.model.CollectionDataBase;
+import com.botanik.model.Combo;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -34,46 +35,47 @@ import javafx.stage.Stage;
  * @author teyyub , 11:08:01 AM
  */
 public class DefaultOrganisationInstituteOperation {
+
     private int combo_id = 16;
     CombosDAO baseDao = new CombosDAOJDBC();
     @FXML
     private TableView table;
-
+    
     @FXML
     private Label lblCount;
-
+    
     @FXML
     private TableColumn<Base, Integer> idColumn;
     @FXML
     private TableColumn<Base, String> nameColumn;
-
+    
     ObservableList<Base> org_ins_List;
     List<Base> org_ins;
     
     Base selectedItem;
-            
+    
     @FXML
     private TextField nameText;
-
+    
     @FXML
     private void initialize() {
         System.out.println("init DefaultFamilyOperation");
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-
+        
         loadTable();
         nameText.setOnKeyPressed((KeyEvent event) -> {
             if (event.getCode().equals(KeyCode.ENTER)) {
                 search();
             }
         });
-
+        
     }
-
-    private void loadOrgIns() {     
-          org_ins = baseDao.combosByIds(combo_id);
+    
+    private void loadOrgIns() {        
+        org_ins = baseDao.combosByIds(combo_id);
     }
-
+    
     private void loadTable() {
         loadOrgIns();
         org_ins_List = FXCollections.observableArrayList(org_ins);
@@ -81,25 +83,26 @@ public class DefaultOrganisationInstituteOperation {
         table.refresh();
         lblCount.setText("Record in Data " + String.valueOf(org_ins.size()));
     }
-
+    
     @FXML
     private void search() {
-
+        
         if ((nameText.getText().equals("")) || (nameText.getText().length() == 0)) {
             loadTable();
         } else {
-            org_ins = baseDao.familyByName(nameText.getText());
+            Combo c = new Combo(16, nameText.getText());
+            org_ins = baseDao.loadByCombo(c);
             org_ins_List = FXCollections.observableArrayList(org_ins);
             table.setItems(org_ins_List);
             table.refresh();
         }
     }
-
+    
     @FXML
     private void onEnter(ActionEvent ae) {
-
+        
     }
-
+    
     @FXML
     private void delete() {
         selectedItem = (Base) table.getSelectionModel().getSelectedItem();
@@ -111,7 +114,7 @@ public class DefaultOrganisationInstituteOperation {
         } else {
             if (isDeleteOk()) {
                 try {
-                    baseDao.deleteCombosById(selectedItem.getId(),combo_id);
+                    baseDao.deleteCombosById(selectedItem.getId(), combo_id);
                     loadTable();
                 } catch (Exception e) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -122,7 +125,7 @@ public class DefaultOrganisationInstituteOperation {
             }
         }
     }
-
+    
     private boolean isDeleteOk() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 //        alert.initOwner(dialogStage);
@@ -130,16 +133,16 @@ public class DefaultOrganisationInstituteOperation {
         Optional<ButtonType> result = alert.showAndWait();
         return result.get() == ButtonType.OK;
     }
-
+    
     @FXML
     private void add() {
         createForm("view/addFrm.fxml", "Add", true);
         loadTable();
     }
-
+    
     @FXML
     private void edit() {
-
+        
         selectedItem = (Base) table.getSelectionModel().getSelectedItem();
         if (selectedItem == null) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -151,16 +154,14 @@ public class DefaultOrganisationInstituteOperation {
         }
         loadTable();
     }
-
     
-
     private void createForm(String view, String title, boolean isNew) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Seed.class.getResource(view));
-
+            
             AnchorPane layout = (AnchorPane) loader.load();
-
+            
             Stage stage = new Stage();
             stage.setTitle(title);
             Scene scene = new Scene(layout);
@@ -169,24 +170,24 @@ public class DefaultOrganisationInstituteOperation {
             stage.setResizable(false);
             AddFormController controller = loader.getController();
             controller.setCombos_id(combo_id);
-            controller.setIsNew(isNew); 
+            controller.setIsNew(isNew);            
             controller.setDialogStage(stage);
             stage.showAndWait();
-
+            
         } catch (IOException ex) {
             Logger.getLogger(CollectionDataBase.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-
+        
     }
     
-     private void editForm(String view, String title ) {
+    private void editForm(String view, String title) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Seed.class.getResource(view));
-
+            
             AnchorPane layout = (AnchorPane) loader.load();
-
+            
             Stage stage = new Stage();
             stage.setTitle(title);
             Scene scene = new Scene(layout);
@@ -195,17 +196,17 @@ public class DefaultOrganisationInstituteOperation {
             stage.setResizable(false);
             AddFormController controller = loader.getController();
             controller.setModel(this.selectedItem);            
-            controller.setIsNew(false); 
+            controller.setIsNew(false);            
             controller.setCombos_id(combo_id);
             controller.init();
             controller.setDialogStage(stage);
             stage.showAndWait();
-
+            
         } catch (IOException ex) {
             Logger.getLogger(CollectionDataBase.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-
+        
     }
     
 }
