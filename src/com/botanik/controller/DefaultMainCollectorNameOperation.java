@@ -5,6 +5,7 @@ import com.botanik.dao.impl.CombosDAOJDBC;
 import com.botanik.dao.intf.CombosDAO;
 import com.botanik.model.Base;
 import com.botanik.model.CollectionDataBase;
+import com.botanik.model.Combo;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -88,7 +89,8 @@ public class DefaultMainCollectorNameOperation {
         if ((nameText.getText().equals("")) || (nameText.getText().length() == 0)) {
             loadTable();
         } else {
-            mainCollectors = baseDao.familyByName(nameText.getText());
+            Combo c = new Combo(18,nameText.getText());
+            mainCollectors = baseDao.loadByCombo(c);
             mainCollList = FXCollections.observableArrayList(mainCollectors);
             table.setItems(mainCollList);
             table.refresh();
