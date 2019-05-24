@@ -5,6 +5,7 @@ import com.botanik.dao.impl.CombosDAOJDBC;
 import com.botanik.dao.intf.CombosDAO;
 import com.botanik.model.Base;
 import com.botanik.model.CollectionDataBase;
+import com.botanik.model.Combo;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -49,9 +50,9 @@ public class DefaultOtherKeyOperation {
 
     ObservableList<Base> otherKeyList;
     List<Base> otherKeys;
-    
+
     Base selectedItem;
-            
+
     @FXML
     private TextField nameText;
 
@@ -70,8 +71,8 @@ public class DefaultOtherKeyOperation {
 
     }
 
-    private void loadOtherKey() {     
-          otherKeys = baseDao.combosByIds(13);
+    private void loadOtherKey() {
+        otherKeys = baseDao.combosByIds(13);
     }
 
     private void loadTable() {
@@ -88,7 +89,8 @@ public class DefaultOtherKeyOperation {
         if ((nameText.getText().equals("")) || (nameText.getText().length() == 0)) {
             loadTable();
         } else {
-            otherKeys = baseDao.familyByName(nameText.getText());
+            Combo c = new Combo(13, nameText.getText());
+            otherKeys = baseDao.loadByCombo(c);
             otherKeyList = FXCollections.observableArrayList(otherKeys);
             table.setItems(otherKeyList);
             table.refresh();
@@ -111,7 +113,7 @@ public class DefaultOtherKeyOperation {
         } else {
             if (isDeleteOk()) {
                 try {
-                    baseDao.deleteCombosById(selectedItem.getId(),13);
+                    baseDao.deleteCombosById(selectedItem.getId(), 13);
                     loadTable();
                 } catch (Exception e) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -146,13 +148,11 @@ public class DefaultOtherKeyOperation {
 //            alert.initOwner(dialogStage);
             alert.setContentText("Item is not selected");
             alert.showAndWait();
-        } else {            
+        } else {
             editForm("view/addFrm.fxml", "Edit");
         }
         loadTable();
     }
-
-    
 
     private void createForm(String view, String title, boolean isNew) {
         try {
@@ -169,7 +169,7 @@ public class DefaultOtherKeyOperation {
             stage.setResizable(false);
             AddFormController controller = loader.getController();
             controller.setCombos_id(13);
-            controller.setIsNew(isNew); 
+            controller.setIsNew(isNew);
             controller.setDialogStage(stage);
             stage.showAndWait();
 
@@ -179,8 +179,8 @@ public class DefaultOtherKeyOperation {
         }
 
     }
-    
-     private void editForm(String view, String title ) {
+
+    private void editForm(String view, String title) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Seed.class.getResource(view));
@@ -194,8 +194,8 @@ public class DefaultOtherKeyOperation {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setResizable(false);
             AddFormController controller = loader.getController();
-            controller.setModel(this.selectedItem);            
-            controller.setIsNew(false); 
+            controller.setModel(this.selectedItem);
+            controller.setIsNew(false);
             controller.setCombos_id(13);
             controller.init();
             controller.setDialogStage(stage);
@@ -207,5 +207,5 @@ public class DefaultOtherKeyOperation {
         }
 
     }
-    
+
 }
