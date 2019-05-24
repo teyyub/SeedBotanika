@@ -5,6 +5,7 @@ import com.botanik.dao.impl.CombosDAOJDBC;
 import com.botanik.dao.intf.CombosDAO;
 import com.botanik.model.Base;
 import com.botanik.model.CollectionDataBase;
+import com.botanik.model.Combo;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -91,7 +92,8 @@ public class DefaultFamilyOperation {
         if ((familyNameText.getText().equals("")) || (familyNameText.getText().length() == 0)) {
             loadFamilyTable();
         } else {
-            families = baseDao.familyByName(familyNameText.getText());
+            Combo c = new Combo(1,familyNameText.getText());
+            families = baseDao.loadByCombo(c);
             familyList = FXCollections.observableArrayList(families);
             familyTable.setItems(familyList);
             familyTable.refresh();
