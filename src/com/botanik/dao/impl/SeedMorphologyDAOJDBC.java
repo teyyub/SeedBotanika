@@ -9,6 +9,7 @@ import com.botanik.model.HabitatDataBase;
 import com.botanik.model.SeedMorphology;
 import com.botanik.model.SeedWeight;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -268,7 +269,7 @@ public class SeedMorphologyDAOJDBC implements SeedMorphologyDAO {
             ps.execute();
             rs = ps.getGeneratedKeys();
             int gen_id = rs.next() ? rs.getInt(1) : 0;
-            model.setId(gen_id);
+            model.setId(BigDecimal.valueOf(gen_id));
             model.setDaoStatus("1");
         } catch (SQLException e) {
             model.setDaoStatus("0");
@@ -518,7 +519,7 @@ public class SeedMorphologyDAOJDBC implements SeedMorphologyDAO {
             ps.execute();
             rs = ps.getGeneratedKeys();
             int gen_id = rs.next() ? rs.getInt(1) : 0;
-            model.setId(gen_id);
+            model.setId(BigDecimal.valueOf(gen_id));
             model.setDaoStatus("1");
         } catch (SQLException e) {
             model.setDaoStatus("0");
@@ -578,13 +579,13 @@ public class SeedMorphologyDAOJDBC implements SeedMorphologyDAO {
             }
             Object[] values = {
                 model.getSize(),
-                model.getTypeId(),
+                model.getTypeId().intValue(),
                 model.getLength(),
                 model.getWidth(),
                 model.getHeight(),
-                model.getAidId(),
+                model.getAidId().intValue(),
                 model.getConfiguration(),
-                model.getEmbrioId(),                
+                model.getEmbrioId().intValue(),                
                 model.getId()};
 
             ps = prepareStatement(conn, SQL_UPDATE_SEED_MORPHOLOGY,  values);

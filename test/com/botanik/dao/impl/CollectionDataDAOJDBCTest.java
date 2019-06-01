@@ -3,6 +3,7 @@ package com.botanik.dao.impl;
 
 import com.botanik.model.Base;
 import com.botanik.model.CollectionDataBase;
+import java.math.BigDecimal;
 import java.util.Date;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -43,9 +44,9 @@ public class CollectionDataDAOJDBCTest {
                 "test ed", 
                 "123asdf", 
                 new Date(), 
-                1,                 
-                1, 
-                1 );
+                BigDecimal.valueOf(1),                 
+                BigDecimal.valueOf(1), 
+                BigDecimal.valueOf(1) );
     
         
         

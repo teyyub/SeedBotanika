@@ -6,6 +6,7 @@ import static com.botanik.dao.DAOUtil.prepareStatement;
 import com.botanik.dao.intf.SamplingDataDAO;
 import com.botanik.model.SamplingDataBase;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -260,7 +261,7 @@ public class SamplingDAOJDBC implements SamplingDataDAO {
             ps.execute();
             rs = ps.getGeneratedKeys();
             int gen_id = rs.next() ? rs.getInt(1) : 0;
-            model.setId(gen_id);
+            model.setId(BigDecimal.valueOf(gen_id));
             model.setDaoStatus("1");
         } catch (SQLException e) {
             model.setDaoStatus("0");
@@ -354,7 +355,7 @@ public class SamplingDAOJDBC implements SamplingDataDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 model = new SamplingDataBase(
-                        rs.getInt(1),
+                        rs.getBigDecimal(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
@@ -424,7 +425,7 @@ public class SamplingDAOJDBC implements SamplingDataDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 model = new SamplingDataBase(
-                        rs.getInt(1),
+                        rs.getBigDecimal(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),

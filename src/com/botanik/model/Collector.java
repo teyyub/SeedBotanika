@@ -1,5 +1,7 @@
 package com.botanik.model;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author teyyub Aug 19, 2016 9:20:01 AM
@@ -17,7 +19,10 @@ public class Collector extends Base {
         this.type = type;
     }
 
-    public Collector(Number id, String name) {
+//    public Collector(Number id, String name) {
+//        super(id, name);
+//    }
+    public Collector(BigDecimal id, String name) {
         super(id, name);
     }
 

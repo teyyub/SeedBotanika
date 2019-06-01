@@ -3,6 +3,7 @@ package com.botanik.controller;
 import com.botanik.dao.impl.SamplingDAOJDBC;
 import com.botanik.dao.intf.SamplingDataDAO;
 import com.botanik.model.SamplingDataBase;
+import java.math.BigDecimal;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
@@ -64,7 +65,7 @@ public class AddSamplingDataController {
     }
 
     private void updateModel() {
-        Number id = model.getId();
+        BigDecimal id = model.getId();
         model = new SamplingDataBase(id,
                     numberSampleTextField.getText(), 
                     numberFoodTextField.getText(), 

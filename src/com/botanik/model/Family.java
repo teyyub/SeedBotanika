@@ -1,5 +1,7 @@
 package com.botanik.model;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author teyyub , Jan 7, 2018 , 1:19:01 PM
@@ -12,14 +14,25 @@ public class Family extends Base {
     public Family() {
     }
 
-    public Family(Number id, String name, Category category) {
+//    public Family(Number id, String name, Category category) {
+//        super(id, name);
+//        this.category = category;
+//    }
+//    
+//    public Family(Number id, String name ) {
+//        super(id, name);        
+//    }
+    
+    
+    public Family(BigDecimal id, String name, Category category) {
         super(id, name);
         this.category = category;
     }
     
-    public Family(Number id, String name ) {
+    public Family(BigDecimal id, String name ) {
         super(id, name);        
     }
+    
     
     public Family( String name ) {
         super(  name);        

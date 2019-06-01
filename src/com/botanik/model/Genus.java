@@ -1,5 +1,7 @@
 package com.botanik.model;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author teyyub , Jan 7, 2018 , 1:19:20 PM
@@ -31,7 +33,7 @@ public class Genus extends Base {
         this.accepted = accepted;
     }
 
-    public Genus(Number genus_id, Number author_id, Number family_id, Number taxon_id, String ref_no, String addition, String remarks, boolean hybrid, boolean accepted, String name) {
+    public Genus(BigDecimal genus_id, Integer author_id, Number family_id, Number taxon_id, String ref_no, String addition, String remarks, boolean hybrid, boolean accepted, String name) {
         super(genus_id, name);
         this.author_id = author_id;
         this.family_id = family_id;

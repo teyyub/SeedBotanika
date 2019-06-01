@@ -19,8 +19,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.logging.FileHandler;
-import java.util.logging.Level;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -28,30 +26,38 @@ import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import com.botanik.logger.Logger;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.VerticalAlignment;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
+import org.apache.poi.xssf.usermodel.XSSFColor;
 
 /**
  *
  * @author teyyub , 8:20:49 PM
  */
 public class ExportController {
-
+    
     XSSFWorkbook workbook;
     XSSFSheet sheet;
     private long gen_id;
     private Map<String, String> headers = new HashMap();
     private Map<Integer, String> headers1 = new HashMap();
-
+    
     private ExportDAO dao = new ExportDAOJDBC();
     Map<Integer, Object[]> data = new TreeMap<>();
     Map<String, Object[]> data1 = new TreeMap<>();
-
+    
     public ExportController() {
         gen_id = genId();
     }
-
+    
     private void loadData() {
+        Logger.save("started loadData");
         List<ExportModel> list = dao.getExportModel();
-
+        Logger.save("getExportModel() list size " + list.size());
         for (int i = 0; i < list.size(); i++) {
             CollectionExport ce = list.get(i).getCollectionExport();
             PlantExport pe = list.get(i).getPlantExport();
@@ -59,7 +65,7 @@ public class ExportController {
             HabitatExport he = list.get(i).getHabitatExport();
             SamplingExport se = list.get(i).getSamplingExport();
             HerbariumExport her = list.get(i).getHerbariumExport();
-
+            
             data1.put(String.valueOf(i), new Object[]{ce.getOrganisation(), ce.getProjectName(), ce.getWildCultivated(), ce.getColNumber(), ce.getAccNumber(), ce.getColDate(), ce.getCollectorName(), ce.getOtherCollName(),
                 pe.getFamily(), pe.getGenus(), pe.getSpecies(), pe.getSpecies(), pe.getSpeAuthor(), pe.getRank(), pe.getInfraSpeciSpecies(), pe.getInfraSpeciAthor(), pe.getRank2(),
                 pe.getInfraSpeciSpecies2(), pe.getInfraSpeciAthor2(), pe.getIdentStatus(), pe.getIdetFrom(), pe.getIdentName(), pe.getIdentDate(), pe.getPlantDesc(), pe.getPlantForm(),
@@ -71,93 +77,97 @@ public class ExportController {
                 her.getSpecimen(), her.getNumber(), her.getSentToKew(), her.getLocation()
             });
         }
-
+        
     }
-
+    
     private void prepare() {
-//        final String dir = System.getProperty("user.dir");
-//        Logger logger = Logger.getLogger("Mylog");
         try {
-//            FileHandler fh = new FileHandler(dir + "/slog.txt");           
-//            logger.addHandler(fh);
-
-            Logger.save("preparing method");
+            Logger.save("started prepare");
             loadData();
             headerMap();
             subHeaderMap();
-            workbook = new XSSFWorkbook();
+            
+            Logger.save("started workBook");
+            try {                
+                workbook = new XSSFWorkbook();
+            } catch (Exception e) {
+                Logger.save("woorkbook exception " + e.getMessage());
+            }            
+            Logger.save("end workbook");
+            Logger.save("started sheet");
             sheet = workbook.createSheet("Data");
-//
-//            //collection data
-//            sheet.addMergedRegion(CellRangeAddress.valueOf("$A$2:$H$2"));
-//            CellStyle style = workbook.createCellStyle();
-//            Row row = createRow((short) 1);
-//            Cell cell = createCell(row, (short) 0);
-//            cell.setCellValue(headers.get("bir"));
-//            style.setAlignment(HorizontalAlignment.CENTER);
-//            style.setVerticalAlignment(VerticalAlignment.CENTER);
-//            XSSFColor color = new XSSFColor(new java.awt.Color(228, 109, 10));
-//            ((XSSFCellStyle) style).setFillForegroundColor(color);
-//            style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-//            row.getCell(0).setCellStyle(style);
-//            cell.setCellStyle(style);
+            Logger.save("end sheet");
+
+            //collection data
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$A$2:$H$2"));
+            CellStyle style = workbook.createCellStyle();
+            Row row = createRow((short) 1);
+            Cell cell = createCell(row, (short) 0);
+            cell.setCellValue(headers.get("bir"));
+            style.setAlignment(HorizontalAlignment.CENTER);
+            style.setVerticalAlignment(VerticalAlignment.CENTER);
+            XSSFColor color = new XSSFColor(new java.awt.Color(228, 109, 10));
+            ((XSSFCellStyle) style).setFillForegroundColor(color);
+            style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            row.getCell(0).setCellStyle(style);
+            cell.setCellStyle(style);
 //
 ////        plant and identification
-//            sheet.addMergedRegion(CellRangeAddress.valueOf("$I$2:$AC$2"));
-//            createCell(row, (short) 8).setCellValue(headers.get("iki"));
-//            CellStyle style1 = workbook.createCellStyle();
-//            style1.setAlignment(HorizontalAlignment.CENTER);
-//            style1.setVerticalAlignment(VerticalAlignment.CENTER);
-//            XSSFColor color1 = new XSSFColor(new java.awt.Color(204, 153, 0));
-//            ((XSSFCellStyle) style1).setFillForegroundColor(color1);
-//            style1.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-//            row.getCell(8).setCellStyle(style1);
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$I$2:$AC$2"));
+            createCell(row, (short) 8).setCellValue(headers.get("iki"));
+            CellStyle style1 = workbook.createCellStyle();
+            style1.setAlignment(HorizontalAlignment.CENTER);
+            style1.setVerticalAlignment(VerticalAlignment.CENTER);
+            XSSFColor color1 = new XSSFColor(new java.awt.Color(204, 153, 0));
+            ((XSSFCellStyle) style1).setFillForegroundColor(color1);
+            style1.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            row.getCell(8).setCellStyle(style1);
 //
 //            //       location data
-//            sheet.addMergedRegion(CellRangeAddress.valueOf("$AD$2:$AU$2"));
-//            createCell(row, (short) 29).setCellValue(headers.get("uc"));
-//
-//            CellStyle style2 = workbook.createCellStyle();
-//            style2.setAlignment(HorizontalAlignment.CENTER);
-//            style2.setVerticalAlignment(VerticalAlignment.CENTER);
-//            XSSFColor color2 = new XSSFColor(new java.awt.Color(83, 142, 213));
-//            ((XSSFCellStyle) style2).setFillForegroundColor(color2);
-//            style2.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-//            row.getCell(29).setCellStyle(style2);
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$AD$2:$AU$2"));
+            createCell(row, (short) 29).setCellValue(headers.get("uc"));
+
+            CellStyle style2 = workbook.createCellStyle();
+            style2.setAlignment(HorizontalAlignment.CENTER);
+            style2.setVerticalAlignment(VerticalAlignment.CENTER);
+            XSSFColor color2 = new XSSFColor(new java.awt.Color(83, 142, 213));
+            ((XSSFCellStyle) style2).setFillForegroundColor(color2);
+            style2.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            row.getCell(29).setCellStyle(style2);
 //
 //            //habitat
-//            sheet.addMergedRegion(CellRangeAddress.valueOf("$AV$2:$BE$2"));
-//            createCell(row, (short) 47).setCellValue(headers.get("dord"));;//row.createCell(46);
-//
-//            CellStyle style3 = workbook.createCellStyle();
-//            style3.setAlignment(HorizontalAlignment.CENTER);
-//            style3.setVerticalAlignment(VerticalAlignment.CENTER);
-//            XSSFColor color3 = new XSSFColor(new java.awt.Color(79, 98, 40));
-//            ((XSSFCellStyle) style3).setFillForegroundColor(color3);
-//            style3.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-//            row.getCell(47).setCellStyle(style3);
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$AV$2:$BE$2"));
+            createCell(row, (short) 47).setCellValue(headers.get("dord"));;//row.createCell(46);
+
+            CellStyle style3 = workbook.createCellStyle();
+            style3.setAlignment(HorizontalAlignment.CENTER);
+            style3.setVerticalAlignment(VerticalAlignment.CENTER);
+            XSSFColor color3 = new XSSFColor(new java.awt.Color(79, 98, 40));
+            ((XSSFCellStyle) style3).setFillForegroundColor(color3);
+            style3.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            row.getCell(47).setCellStyle(style3);
 //
 //            //        //sapling   
-//            sheet.addMergedRegion(CellRangeAddress.valueOf("$BF$2:$BJ$2"));
-//            createCell(row, (short) 57).setCellValue(headers.get("bes"));;//row.createCell(52);        
-//            CellStyle style4 = workbook.createCellStyle();
-//            style3.setAlignment(HorizontalAlignment.CENTER);
-//            style3.setVerticalAlignment(VerticalAlignment.CENTER);
-//            XSSFColor color4 = new XSSFColor(new java.awt.Color(67, 33, 129));
-//            ((XSSFCellStyle) style4).setFillForegroundColor(color4);
-//            style4.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-//            row.getCell(57).setCellStyle(style4);
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$BF$2:$BJ$2"));
+            createCell(row, (short) 57).setCellValue(headers.get("bes"));;//row.createCell(52);        
+            CellStyle style4 = workbook.createCellStyle();
+            style3.setAlignment(HorizontalAlignment.CENTER);
+            style3.setVerticalAlignment(VerticalAlignment.CENTER);
+            XSSFColor color4 = new XSSFColor(new java.awt.Color(67, 33, 129));
+            ((XSSFCellStyle) style4).setFillForegroundColor(color4);
+            style4.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            row.getCell(57).setCellStyle(style4);
 //
 //            //        herbarium
-//            sheet.addMergedRegion(CellRangeAddress.valueOf("$BK$2:$BN$2"));
-//            createCell(row, (short) 62).setCellValue(headers.get("alti"));;//row.createCell(56);        
-//            CellStyle style5 = workbook.createCellStyle();
-//            style5.setAlignment(HorizontalAlignment.CENTER);
-//            style5.setVerticalAlignment(VerticalAlignment.CENTER);
-//            XSSFColor color5 = new XSSFColor(new java.awt.Color(79, 98, 40));
-//            ((XSSFCellStyle) style5).setFillForegroundColor(color5);
-//            style5.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-//            row.getCell(62).setCellStyle(style5);
+            sheet.addMergedRegion(CellRangeAddress.valueOf("$BK$2:$BN$2"));
+            createCell(row, (short) 62).setCellValue(headers.get("alti"));;//row.createCell(56);        
+            CellStyle style5 = workbook.createCellStyle();
+            style5.setAlignment(HorizontalAlignment.CENTER);
+            style5.setVerticalAlignment(VerticalAlignment.CENTER);
+            XSSFColor color5 = new XSSFColor(new java.awt.Color(79, 98, 40));
+            ((XSSFCellStyle) style5).setFillForegroundColor(color5);
+            style5.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            row.getCell(62).setCellStyle(style5);
 //
 ////        sheet.addMergedRegion(CellRangeAddress.valueOf("$BN$2:$BV$2"));
 ////        createCell(row, (short) 67).setCellValue(headers.get("yeddi"));;//row.createCell(65);              
@@ -168,22 +178,22 @@ public class ExportController {
 ////        ((XSSFCellStyle) style6).setFillForegroundColor(color3);
 ////        style6.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 ////        row.getCell(67).setCellStyle(style6);
-//            Row row2 = createRow((short) 2);
-//            Cell cell1 = createCell(row2, (short) 0);
+            Row row2 = createRow((short) 2);
+            Cell cell1 = createCell(row2, (short) 0);
+            CellStyle cs = workbook.createCellStyle();
+            cs.setWrapText(true);
+            Font font = workbook.createFont();
+            font.setFontHeightInPoints((short) 10);
+            cs.setFont(font);
+
+            for (int j = 0; j < headers1.size(); j++) {
 //            CellStyle cs = workbook.createCellStyle();
-//            cs.setWrapText(true);
-//            Font font = workbook.createFont();
-//            font.setFontHeightInPoints((short) 10);
-//            cs.setFont(font);
-//
-//            for (int j = 0; j < headers1.size(); j++) {
-////            CellStyle cs = workbook.createCellStyle();
-//
-//                row2.createCell(j).setCellValue(headers1.get(j));
-////            cs.setAlignment(HorizontalAlignment.CENTER);
-//                cs.setVerticalAlignment(VerticalAlignment.TOP);
-//                row2.getCell(j).setCellStyle(cs);
-//            }
+
+                row2.createCell(j).setCellValue(headers1.get(j));
+//            cs.setAlignment(HorizontalAlignment.CENTER);
+                cs.setVerticalAlignment(VerticalAlignment.TOP);
+                row2.getCell(j).setCellStyle(cs);
+            }
 
 //        row.setHeightInPoints((2 * sheet.getDefaultRowHeightInPoints()));
             //adjust column width to fit the content
@@ -204,15 +214,24 @@ public class ExportController {
 //        // Assign the comment to the cell
 //        cell.setCellComment(comment);
         } catch (SecurityException ex) {
-//            logger.log( ex.getMessage());
+            Logger.save(ex.getMessage());
         }
+        Logger.save("end of  prepare");
     }
-
+    
     private void makeRowHeight() {
-        sheet.getRow(2).setHeightInPoints(40);
-//        sheet.getRow(3).setHeightInPoints(20);
-    }
+        Logger.save("started makeRowHeight");
+        try {            
+            sheet.getRow(2).setHeightInPoints(40);
 
+//        sheet.getRow(3).setHeightInPoints(20);
+        } catch (NullPointerException ne) {
+            Logger.save(ne.getMessage());
+        }
+        
+        Logger.save("end of  makeRowHeight");
+    }
+    
     private void mergeCell() {
         for (int i = 0; i < 70; i++) {
             if (i == 2) {
@@ -226,32 +245,35 @@ public class ExportController {
             ));
         }
     }
-
+    
     private void writeToExcel() {
+        Logger.save("started writeToExcel");
         prepare();
         mergeCell();
         Set<String> keyset = data1.keySet();
-
+        
         int rownum = 4;
         for (String key : keyset) {
             Row row1 = sheet.createRow(rownum++);
             Object[] objArr = data1.get(key);
             int cellnum = 0;
             for (Object obj : objArr) {
-
+                
                 Cell cell11 = row1.createCell(cellnum++);
                 if (obj instanceof String) {
                     cell11.setCellValue((String) obj);
-
+                    
                 } else if (obj instanceof Integer) {
                     cell11.setCellValue((Integer) obj);
                 }
             }
         }
         makeRowHeight();
+        Logger.save("end writeToExcel");
     }
-
+    
     public void export() {
+        Logger.save("started export");
         try {
             writeToExcel();
             try (FileOutputStream fileOut = new FileOutputStream(fileName())) {
@@ -265,14 +287,15 @@ public class ExportController {
             } catch (IOException e) {
                 Logger.save(e.getMessage());
             }
-
+            
         } catch (IOException | SecurityException ex) {
             Logger.save(ex.getMessage());
         }
+        Logger.save("end of export");
     }
-
+    
     private void write() throws IOException, FileNotFoundException {
-
+        
     }
 
 //    private String fileName() {
@@ -292,16 +315,17 @@ public class ExportController {
         Logger.save(cur_dir);
         return cur_dir;
     }
-
+    
     private Row createRow(short index) {
         return sheet.createRow(index);
     }
-
+    
     private Cell createCell(Row row, short index) {
         return row.createCell(index);
     }
-
+    
     public void headerMap() {
+        Logger.save("started headerMap");
         headers.put("bir", "COLLECTION DATA");
         headers.put("iki", "PLANT NAME & IDENTIFICATION DATA");
         headers.put("uc", "LOCATION DATA for WILD COLLECTIONS");
@@ -309,9 +333,11 @@ public class ExportController {
         headers.put("bes", "SAMPLING DATA for WILD COLLECTIONS");
         headers.put("alti", "HERBARIUM SPECIMEN DATA");
         headers.put("yeddi", "CULTIVATED COLLECTIONS ONLY");
+        Logger.save("end of headerMap");
     }
-
+    
     public void subHeaderMap() {
+        Logger.save("started subHeaderMap");
         headers1.put(0, "Donor Organisation\n\nOrganisation institute donating the seeds to Kew.");
         headers1.put(1, "Project Name\n\nIf known.");
         headers1.put(2, "If seeds collected from wild or cultivated plants.\nSelect from list.");
@@ -389,7 +415,7 @@ public class ExportController {
 //        headers1.put(72, "Number of Plants Cultivated*\n \n Total number of plants grown.");
 //        headers1.put(73, "Number of Plants Harvested*\n \n Number of plants seed collected from.");
 //        headers1.put(74, "Habitat/Other Information\n \n Record the habitat and/or any other important information about the collection.");
-
+        Logger.save("end of subheaderMap");
     }
-
+    
 }

@@ -1,12 +1,14 @@
 package com.botanik.model;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author teyyub Aug 1, 2016 9:32:28 AM
  */
 public class Region {
 
-    private Number id;
+    private BigDecimal id;
     private String name;
 
     public Region(String name) {
@@ -16,16 +18,16 @@ public class Region {
     public Region() {
     }
 
-    public Region(Number id, String name) {
+    public Region(BigDecimal id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Number getId() {
+    public BigDecimal getId() {
         return id;
     }
 
-    public void setId(Number id) {
+    public void setId(BigDecimal id) {
         this.id = id;
     }
 

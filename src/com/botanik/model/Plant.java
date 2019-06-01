@@ -1,5 +1,6 @@
 package com.botanik.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -8,25 +9,25 @@ import java.util.Date;
  */
 public class Plant extends Base {
 
-    private Number familyId;
-    private Number genusId;
-    private Number speciesId;
-    private Number speciesAuthorId;
-    private Number rankId;
-    private Number infraSpeciesId;
-    private Number infrauthorId;
-    private Number rank2Id;
-    private Number identStatusId;
-    private Number identInstituteId;    
+    private BigDecimal familyId;
+    private BigDecimal genusId;
+    private BigDecimal speciesId;
+    private BigDecimal speciesAuthorId;
+    private BigDecimal rankId;
+    private BigDecimal infraSpeciesId;
+    private BigDecimal infrauthorId;
+    private BigDecimal rank2Id;
+    private BigDecimal identStatusId;
+    private BigDecimal identInstituteId;    
     private String plantDesc;
-    private Number usesId;
-    private Number verNameId;
-    private Number assesInforId;
-    private Number otherKeyId;
-    private Number plantFormId;
-    private Number infraSpecies2Id;
-    private Number infraAuthor2Id;
-    private Number identFromId;
+    private BigDecimal usesId;
+    private BigDecimal verNameId;
+    private BigDecimal assesInforId;
+    private BigDecimal otherKeyId;
+    private BigDecimal plantFormId;
+    private BigDecimal infraSpecies2Id;
+    private BigDecimal infraAuthor2Id;
+    private BigDecimal identFromId;
     private Date identificationDate;
     private String height;
     private DefaultImage defaultImage;
@@ -37,12 +38,12 @@ public class Plant extends Base {
     }
  
 
-    public Plant(Number id,Number familyId, Number genusId, Number speciesId,
-            Number speciesAuthorId, Number rankId,Number infraSpeciesId, Number infrauthorId, Number rank2Id, 
-            Number identStatusId, Number identInstituteId, String plantDesc, 
-            Number usesId, Number verNameId, Number assesInforId, Number otherKeyId, 
-            Number plantFormId, Number infraSpecies2Id, Number infraAuthor2Id, 
-            Number identFromId, Date identificationDate, String height) {
+    public Plant(BigDecimal id,BigDecimal familyId, BigDecimal genusId, BigDecimal speciesId,
+            BigDecimal speciesAuthorId, BigDecimal rankId,BigDecimal infraSpeciesId, BigDecimal infrauthorId, BigDecimal rank2Id, 
+            BigDecimal identStatusId, BigDecimal identInstituteId, String plantDesc, 
+            BigDecimal usesId, BigDecimal verNameId, BigDecimal assesInforId, BigDecimal otherKeyId, 
+            BigDecimal plantFormId, BigDecimal infraSpecies2Id, BigDecimal infraAuthor2Id, 
+            BigDecimal identFromId, Date identificationDate, String height) {
         super(id);
         this.familyId = familyId;
         this.genusId = genusId;
@@ -69,23 +70,25 @@ public class Plant extends Base {
 
   
     
-     public Plant(Number familyId, 
-             Number genusId, 
-             Number speciesId,
-             Number speciesAuthorId, 
-             Number rankId, 
-             Number infraSpeciesId, 
-             Number infrauthorId, 
-             Number rank2Id, 
-             Number identStatusId, 
-             Number identInstituteId, 
+     public Plant(BigDecimal familyId, 
+             BigDecimal genusId, 
+             BigDecimal speciesId,
+             BigDecimal speciesAuthorId, 
+             BigDecimal rankId, 
+             BigDecimal infraSpeciesId, 
+             BigDecimal infrauthorId, 
+             BigDecimal rank2Id, 
+             BigDecimal identStatusId, 
+             BigDecimal identInstituteId, 
              String plantDesc, 
-             Number usesId, 
-             Number verNameId, 
-             Number assesInforId, 
-             Number otherKeyId, 
-             Number plantFormId, 
-             Number infraSpecies2Id, Number infraAuthor2Id, Number identFromId, Date identificationDate, String height) {
+             BigDecimal usesId, 
+             BigDecimal verNameId, 
+             BigDecimal assesInforId, 
+             BigDecimal otherKeyId, 
+             BigDecimal plantFormId, 
+             BigDecimal infraSpecies2Id, 
+             BigDecimal infraAuthor2Id, 
+             BigDecimal identFromId, Date identificationDate, String height) {
         this.familyId = familyId;
         this.genusId = genusId;
         this.speciesId = speciesId;
@@ -111,77 +114,77 @@ public class Plant extends Base {
      
  
 
-    public Number getFamilyId() {
+    public BigDecimal getFamilyId() {
         return familyId;
     }
 
-    public Number getGenusId() {
+    public BigDecimal getGenusId() {
         return genusId;
     }
 
-    public Number getSpeciesId() {
+    public BigDecimal getSpeciesId() {
         return speciesId;
     }
 
-    public Number getSpeciesAuthorId() {
+    public BigDecimal getSpeciesAuthorId() {
         return speciesAuthorId;
     }
 
-    public Number getRankId() {
+    public BigDecimal getRankId() {
         return rankId;
     }
 
-    public Number getInfraSpeciesId() {
+    public BigDecimal getInfraSpeciesId() {
         return infraSpeciesId;
     }
 
-    public Number getInfrauthorId() {
+    public BigDecimal getInfrauthorId() {
         return infrauthorId;
     }
 
-    public Number getRank2Id() {
+    public BigDecimal getRank2Id() {
         return rank2Id;
     }
 
-    public Number getIdentStatusId() {
+    public BigDecimal getIdentStatusId() {
         return identStatusId;
     }
 
-    public Number getIdentInstituteId() {
+    public BigDecimal getIdentInstituteId() {
         return identInstituteId;
     }
 
      
 
-    public Number getUsesId() {
+    public BigDecimal getUsesId() {
         return usesId;
     }
 
-    public Number getVerNameId() {
+    public BigDecimal getVerNameId() {
         return verNameId;
     }
 
-    public Number getAssesInforId() {
+    public BigDecimal getAssesInforId() {
         return assesInforId;
     }
 
-    public Number getOtherKeyId() {
+    public BigDecimal getOtherKeyId() {
         return otherKeyId;
     }
 
-    public Number getPlantFormId() {
+    public BigDecimal getPlantFormId() {
         return plantFormId;
     }
 
-    public Number getInfraSpecies2Id() {
+    public BigDecimal getInfraSpecies2Id() {
         return infraSpecies2Id;
     }
 
-    public Number getInfraAuthor2Id() {
+    public BigDecimal getInfraAuthor2Id() {
         return infraAuthor2Id;
     }
 
-    public Number getIdentFromId() {
+    public BigDecimal getIdentFromId() {
         return identFromId;
     }
 

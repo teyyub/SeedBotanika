@@ -1,5 +1,7 @@
 package com.botanik.model;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author USER
@@ -7,37 +9,37 @@ package com.botanik.model;
 public class HerbariumSpecimenBase extends Base {
 
     private String number;
-    private Number locationId;
-    private Number dublicatedId;
+    private BigDecimal locationId;
+    private BigDecimal dublicatedId;
     private Boolean herbarium;
     private String voucher;
-//    private boolean isHerbariumNew = true;
+ 
 
     public HerbariumSpecimenBase() {
     }
 
-    public HerbariumSpecimenBase(String number, Number locationId, Number dublicatedId, Boolean herbarium,String voucher) {
+    public HerbariumSpecimenBase(String number, BigDecimal locationId, BigDecimal dublicatedId, Boolean herbarium, String voucher) {
         this.number = number;
         this.locationId = locationId;
         this.dublicatedId = dublicatedId;
         this.herbarium = herbarium;
-        this.voucher =  voucher;
+        this.voucher = voucher;
     }
 
-    public HerbariumSpecimenBase(Number id, String number, Number locationId, Number dublicatedId, Boolean herbarium, String voucher) {
+    public HerbariumSpecimenBase(BigDecimal id, String number, BigDecimal locationId, BigDecimal dublicatedId, Boolean herbarium, String voucher) {
         super(id);
         this.number = number;
         this.locationId = locationId;
         this.dublicatedId = dublicatedId;
         this.herbarium = herbarium;
-        this.voucher = voucher;    
+        this.voucher = voucher;
     }
 
     public String getNumber() {
         return number;
     }
 
-    public Number getLocationId() {
+    public BigDecimal getLocationId() {
         return locationId;
     }
 
@@ -45,7 +47,7 @@ public class HerbariumSpecimenBase extends Base {
         return herbarium;
     }
 
-    public Number getDublicatedId() {
+    public BigDecimal getDublicatedId() {
         return dublicatedId;
     }
 

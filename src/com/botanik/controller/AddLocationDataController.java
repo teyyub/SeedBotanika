@@ -1,12 +1,12 @@
 package com.botanik.controller;
 
- 
 import com.botanik.dao.impl.LocationDataDAOJDBC;
- 
+
 import com.botanik.dao.intf.LocationDataDAO;
 import com.botanik.model.Country;
 import com.botanik.model.LocationDataBase;
 import com.botanik.model.Region;
+import java.math.BigDecimal;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -21,7 +21,7 @@ import javafx.stage.Stage;
  * @author teyyub
  */
 public class AddLocationDataController {
-
+    
     private final LocationDataDAO dao = new LocationDataDAOJDBC();
     private LocationDataBase model;
     private Stage dialogStage;
@@ -36,14 +36,14 @@ public class AddLocationDataController {
     @FXML
     private TextField districtTextField, latitudeTextField, latMethodTextField, gridTextField, altitudeTextField,
             descriptionTextField, longtitudeTextField, latUnitsTextField, gpsTextField, altitudeMethodTextField;
-
+    
     @FXML
     public void initialize() {
-
+        
         loadCombos();
-
+        
     }
-
+    
     private void loadCombos() {
 //        countryList = FXCollections.observableArrayList(continentDAO.getCountries());
 //        countryCb.setItems(countryList);
@@ -51,20 +51,20 @@ public class AddLocationDataController {
 //        regionList = FXCollections.observableArrayList(continentDAO.getRegions());
 //        stateCb.setItems(regionList);
     }
-
+    
     @FXML
     private void save() {
         System.out.println("save");
         if (isValid()) {
 //            if (isNew) {
-                saveModel();
+            saveModel();
 //            } else {
 //                updateModel();
 //            }
         }
 //        dialogStage.close();
     }
-
+    
     private void saveModel() {
         model = new LocationDataBase(
                 countryId(),
@@ -80,13 +80,13 @@ public class AddLocationDataController {
                 altitudeMethodTextField.getText().trim());
         dao.save(model);
     }
-
+    
     private void updateModel() {
-        Number id = model.getId();
+        BigDecimal id = model.getId();
         model = new LocationDataBase(
                 id,
                 countryId(),
-                stateId(),                
+                stateId(),
                 latitudeTextField.getText().trim(),
                 latMethodTextField.getText().trim(),
                 gridTextField.getText().trim(),
@@ -96,30 +96,30 @@ public class AddLocationDataController {
                 latUnitsTextField.getText().trim(),
                 gpsTextField.getText().trim(),
                 altitudeMethodTextField.getText().trim());
-
+        
         dao.update(model);
     }
-
-    private Number countryId() {
+    
+    private BigDecimal countryId() {
         if (countryCb.getSelectionModel().getSelectedIndex() == -1) {
-            return -1;
+            return BigDecimal.valueOf(-1);
         }
         return ((Country) countryCb.getSelectionModel().getSelectedItem()).getId();
     }
-
-    private Number stateId() {
+    
+    private BigDecimal stateId() {
         if (stateCb.getSelectionModel().getSelectedIndex() == -1) {
-            return -1;
+            return BigDecimal.valueOf(-1);
         }
         return ((Region) stateCb.getSelectionModel().getSelectedItem()).getId();
     }
-
+    
     private boolean isValid() {
         String errorMessage = "";
         if (districtTextField.getText().trim() == null || districtTextField.getText().trim().length() == 0) {
             errorMessage += "Enter  District !\n";
         }
-
+        
         if (errorMessage.length() == 0) {
             return true;
         } else {
@@ -133,9 +133,9 @@ public class AddLocationDataController {
             return false;
         }
     }
-
+    
     public void setModel(LocationDataBase model) {
-        this.model = model;       
+        this.model = model;        
         latitudeTextField.setText(model.getLatitude());
         latMethodTextField.setText(model.getLatMethod());
         gridTextField.setText(model.getGrid());
@@ -146,13 +146,13 @@ public class AddLocationDataController {
         gpsTextField.setText(model.getGps());
         altitudeMethodTextField.setText(model.getAltitudeMethod());
     }
-
+    
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
-
+    
     public void setIsNew(boolean isNew) {
         this.isNew = isNew;
     }
-
+    
 }

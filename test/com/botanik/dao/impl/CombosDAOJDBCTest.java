@@ -2,6 +2,7 @@
 package com.botanik.dao.impl;
 
 import com.botanik.model.Base;
+import com.botanik.model.Combo;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -255,9 +256,9 @@ public class CombosDAOJDBCTest {
         CombosDAOJDBC instance = new CombosDAOJDBC();
         List<Base> expResult = null;
         List<Base> result = instance.combosByIds(num);
-        assertEquals(expResult, result);
+        assertEquals(5, result.size());
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -270,6 +271,90 @@ public class CombosDAOJDBCTest {
         Number result = instance.getId();
         assertEquals(1, result);
    
+    }
+
+    /**
+     * Test of familyByName method, of class CombosDAOJDBC.
+     */
+    @Test
+    public void testFamilyByName() {
+        System.out.println("familyByName");
+        String name = "";
+        CombosDAOJDBC instance = new CombosDAOJDBC();
+        List<Base> expResult = null;
+        List<Base> result = instance.familyByName(name);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of deleteFamilyById method, of class CombosDAOJDBC.
+     */
+    @Test
+    public void testDeleteFamilyById() {
+        System.out.println("deleteFamilyById");
+        Number id = null;
+        CombosDAOJDBC instance = new CombosDAOJDBC();
+        instance.deleteFamilyById(id);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of updateFamily method, of class CombosDAOJDBC.
+     */
+    @Test
+    public void testUpdateFamily() {
+        System.out.println("updateFamily");
+        Base model = null;
+        CombosDAOJDBC instance = new CombosDAOJDBC();
+        instance.updateFamily(model);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of deleteCombosById method, of class CombosDAOJDBC.
+     */
+    @Test
+    public void testDeleteCombosById() {
+        System.out.println("deleteCombosById");
+        Number id = null;
+        int combos_id = 0;
+        CombosDAOJDBC instance = new CombosDAOJDBC();
+        instance.deleteCombosById(id, combos_id);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of updateCombosById method, of class CombosDAOJDBC.
+     */
+    @Test
+    public void testUpdateCombosById() {
+        System.out.println("updateCombosById");
+        Base model = null;
+        int combos_id = 0;
+        CombosDAOJDBC instance = new CombosDAOJDBC();
+        instance.updateCombosById(model, combos_id);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of loadByCombo method, of class CombosDAOJDBC.
+     */
+    @Test
+    public void testLoadByCombo() {
+        System.out.println("loadByCombo");
+        Combo model = null;
+        CombosDAOJDBC instance = new CombosDAOJDBC();
+        List<Base> expResult = null;
+        List<Base> result = instance.loadByCombo(model);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
     
 }

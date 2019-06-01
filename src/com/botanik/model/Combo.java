@@ -9,6 +9,14 @@ public class Combo {
     private Number comboId;
     private String name;
 
+    public Combo() {
+    }
+
+    public Combo(Number comboId, String name) {
+        this.comboId = comboId;
+        this.name = name;
+    }
+
     public Number getComboId() {
         return comboId;
     }

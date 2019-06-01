@@ -1,20 +1,13 @@
 package com.botanik.model;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author teyyub , Jan 7, 2018 , 1:19:20 PM
  */
 public class GenusModel extends Genus {
-
-//    private Number author_id;
-//    private Number family_id;
-//    private Number taxon_id;
-//    private String ref_no;
-//    private String addition;
-//    private String remarks;
-//    private boolean hybrid;
-//    private boolean accepted;
-//    private String full_name;
+ 
     private String author_name;
     private String family_name;
 
@@ -22,8 +15,8 @@ public class GenusModel extends Genus {
     }
 
     public GenusModel(
-            Number genus_id,
-            Number author_id,
+            BigDecimal genus_id,
+            Integer author_id,
             String author_name,
             Number family_id,
             String family_name,

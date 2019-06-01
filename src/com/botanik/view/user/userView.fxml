@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="706.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.botanik.controller.EditRegularUserController">
+   <children>
+      <TabPane fx:id="viewTab" layoutX="-63.0" layoutY="97.0" prefHeight="706.0" prefWidth="1150.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab onSelectionChanged="#handleTab" text="Plant and seed data">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="488.0" prefWidth="814.0">
+                     <children>
+                        <GridPane prefHeight="675.0" prefWidth="899.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="251.0" AnchorPane.topAnchor="0.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="328.0" minWidth="6.0" prefWidth="6.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="328.0" minWidth="10.0" prefWidth="173.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="312.0" minWidth="10.0" prefWidth="170.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="369.0" minWidth="10.0" prefWidth="49.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="343.0" minWidth="10.0" prefWidth="195.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.0" minWidth="10.0" prefWidth="159.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.0" minWidth="10.0" prefWidth="64.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Family" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Label text="Family Azerbaijan" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Label text="Synonym(s)" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                              <Label text="Wild or Cultivates" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                              <Label text="Data collected" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                              <Label text="Collector(s)" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+                              <Label text="Country" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+                              <Label text="Longtitude" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
+                              <Label text=" " wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
+                              <Label text="Plant Description" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="14" />
+                              <Label text="Habitat and land form" wrapText="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Label text="Factors  affecting habitat " wrapText="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Label text="Soil type " wrapText="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Label text="Associated species " wrapText="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Label text="Herbarium number and location" wrapText="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                              <Label text="District/regional" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
+                              <Label text="Description of Location" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
+                              <Label text="Plant from " wrapText="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                              <Button mnemonicParsing="false" text="Save" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="15" />
+                              <Button mnemonicParsing="false" text="Add" visible="false" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="14" />
+                              <Button mnemonicParsing="false" text="Add" visible="false" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+                              <Button mnemonicParsing="false" text="Add" visible="false" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="14" />
+                              <TextField fx:id="factorTextField" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                              <Label text="Id" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                              <TextField fx:id="seedIdTextField" editable="false" GridPane.columnIndex="2" />
+                              <TextArea fx:id="plantDescTextArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="14" GridPane.rowSpan="2" />
+                              <Label text="Taxon" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Label prefHeight="30.0" prefWidth="174.0" text="Organisation/Intstitute" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="Altitude" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="13" />
+                              <TextField fx:id="orgInsTextField" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <TextField fx:id="familyTextField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <TextField fx:id="famAzeTextField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <TextField fx:id="taxonTextField" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <TextField fx:id="taxonAzeTextField" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <TextField fx:id="wildOrCultTextField" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                              <TextField fx:id="collectorsTextField" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                              <TextField fx:id="countryTextField" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                              <TextField fx:id="districtTextField" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                              <TextField fx:id="locationTextField" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+                              <TextField fx:id="longtitudeTextField" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+                              <TextField fx:id="altitudeTextField" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+                              <TextField fx:id="habitatTextField" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                              <TextField fx:id="soilTypeTextField" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                              <TextField fx:id="assSpeciesTextField" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                              <TextField fx:id="herbariumLocationTextField" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                              <TextField fx:id="plantFromTextField" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+                              <DatePicker fx:id="dateCollected" prefHeight="25.0" prefWidth="184.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                           </children>
+                        </GridPane>
+                        <ImageView fx:id="seedImage" fitHeight="285.0" fitWidth="225.0" layoutX="912.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../image/no_image.jpg" />
+                           </image>
+                        </ImageView>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab onSelectionChanged="#handleTab" text="Seed Processing">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutX="3.0" layoutY="8.0" prefHeight="180.0" prefWidth="465.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="242.0" minWidth="10.0" prefWidth="189.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="276.0" minWidth="10.0" prefWidth="276.0" />
+                              <ColumnConstraints />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="118.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="118.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="152.0" minHeight="0.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="152.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Number of Plant  Sample" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Label text="Number of Plant Found" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Label text="Area Sampled (m2)" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="numberSampleTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="areaSampleTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="numberFoodTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="Sampling Data" GridPane.columnSpan="3">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                        <GridPane layoutX="14.0" layoutY="228.0" prefHeight="247.0" prefWidth="709.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="325.0" minWidth="10.0" prefWidth="169.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="712.0" minWidth="10.0" prefWidth="215.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="699.0" minWidth="10.0" prefWidth="133.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="699.0" minWidth="10.0" prefWidth="285.0" />
+                              <ColumnConstraints />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="42.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Fruit size" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Label text="Fruit type" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Label text="Seed size" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Label text="Dispersal aids" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Label text="Seed configuration" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Label text="Type of embryo" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <TextField fx:id="sizeTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label prefHeight="38.0" prefWidth="498.0" text="Seed morphology" GridPane.columnSpan="4">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="slengthTextField" prefHeight="25.0" prefWidth="208.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="50.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Label text="length" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="weight" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <GridPane GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="101.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="101.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.0" minWidth="10.0" prefWidth="86.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <TextField fx:id="swidthTextField" />
+                                    <TextField fx:id="heightTextField" GridPane.columnIndex="2" />
+                                    <Label text="height" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                 </children>
+                              </GridPane>
+                              <TextField fx:id="configureTextfield" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <TextField fx:id="aidsTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="embrioTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField fx:id="fruitType" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                           </children>
+                        </GridPane>
+                        <GridPane layoutX="504.0" layoutY="8.0" prefHeight="258.0" prefWidth="644.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="337.0" minWidth="10.0" prefWidth="259.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="337.0" minWidth="10.0" prefWidth="35.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="587.0" minWidth="10.0" prefWidth="360.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="587.0" minWidth="10.0" prefWidth="68.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="48.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="38.0" minHeight="0.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="96.0" minHeight="0.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                              <RowConstraints />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Seed Weight" GridPane.columnIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <Label text=" 1000 Seed weight" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                              <Label text="Type of  material weight" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                              <Label text="Fruit weight with seed" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                              <TextField fx:id="weight_1000" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <TextField fx:id="fruit_weight" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <Label text="Seed  per fruit" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                              <TextArea fx:id="perfruitTextField" prefHeight="88.0" prefWidth="371.0" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.rowSpan="2" />
+                              <TextField fx:id="typeOfWeight" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                        <GridPane layoutX="-1.0" layoutY="470.0" prefHeight="207.0" prefWidth="777.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="374.0" minWidth="10.0" prefWidth="234.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="567.0" minWidth="10.0" prefWidth="211.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="567.0" minWidth="10.0" prefWidth="226.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="567.0" minWidth="10.0" prefWidth="195.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Germination data " GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Label text="Seed quantity" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Label text="Germination days " GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Label text="Germination days" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Label text="Medium " GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Label text="Condition" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Label text="Germination" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Label text="Additianol information" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <TextField GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <TextField GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <TextField GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                              <Label text="Germination data " GridPane.columnIndex="1" GridPane.columnSpan="2">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

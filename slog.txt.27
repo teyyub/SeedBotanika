@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-05-27T14:12:49</date>
+  <millis>1558951969935</millis>
+  <sequence>27</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.logger.Logger</class>
+  <method>save</method>
+  <thread>14</thread>
+  <message>search model list size 3</message>
+</record>
+<record>
+  <date>2019-05-27T14:12:56</date>
+  <millis>1558951976614</millis>
+  <sequence>28</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.logger.Logger</class>
+  <method>save</method>
+  <thread>14</thread>
+  <message>end of export</message>
+</record>

@@ -1,14 +1,15 @@
 package com.botanik.controller;
 
 import com.botanik.Seed;
- 
+
 import com.botanik.dao.impl.LocationDataDAOJDBC;
- 
+
 import com.botanik.dao.intf.LocationDataDAO;
 import com.botanik.model.Country;
 import com.botanik.model.LocationDataBase;
 import com.botanik.model.Region;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -35,7 +36,7 @@ import javafx.stage.StageStyle;
 public class LocationDataController {
 
     private LocationDataDAO dao = new LocationDataDAOJDBC();
-    
+
     @FXML
     TableView mainTable;
 
@@ -175,10 +176,10 @@ public class LocationDataController {
             AddLocationDataController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             controller.setIsNew(true);
-            
+
             dialogStage.showAndWait();
             loadTable();
-            
+
         } catch (IOException e) {
             System.out.println("exception in addLocationData " + e);
 
@@ -187,7 +188,7 @@ public class LocationDataController {
 
     @FXML
     private void edit() throws IOException {
-        LocationDataBase  model = (LocationDataBase) mainTable.getSelectionModel().getSelectedItem();
+        LocationDataBase model = (LocationDataBase) mainTable.getSelectionModel().getSelectedItem();
         if (model != null) {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Seed.class.getResource("view/addLocationData.fxml"));
@@ -221,7 +222,7 @@ public class LocationDataController {
 
         searchModel = new LocationDataBase(
                 countryId(),
-                stateId(),                
+                stateId(),
                 latitudeTextField.getText(),
                 latMethodTextField.getText(),
                 gridTextField.getText(),
@@ -239,16 +240,16 @@ public class LocationDataController {
 
     }
 
-    private Number countryId() {
+    private BigDecimal countryId() {
         if (countryCb.getSelectionModel().getSelectedIndex() == -1) {
-            return -1;
+            return BigDecimal.valueOf(-1);
         }
         return ((Country) countryCb.getSelectionModel().getSelectedItem()).getId();
     }
 
-    private Number stateId() {
+    private BigDecimal stateId() {
         if (stateCb.getSelectionModel().getSelectedIndex() == -1) {
-            return -1;
+            return BigDecimal.valueOf(-1);
         }
         return ((Region) stateCb.getSelectionModel().getSelectedItem()).getId();
     }

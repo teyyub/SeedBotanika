@@ -1,5 +1,7 @@
 package com.botanik.model;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author teyyub , Jan 7, 2018 , 1:19:16 PM
@@ -20,7 +22,7 @@ public class SamplingDataView extends Base {
         this(null, numberSample, numberFood, area, percentage, note);
     }
 
-    public SamplingDataView(Number id, String numberSample, String numberFood, String area, String percentage, String note) {
+    public SamplingDataView(BigDecimal id, String numberSample, String numberFood, String area, String percentage, String note) {
         super(id);
         this.numberSample = numberSample;
         this.numberFood = numberFood;
@@ -29,7 +31,7 @@ public class SamplingDataView extends Base {
         this.note = note;
     }
 
-    public SamplingDataView(int id, String ns, String nf, String area) {
+    public SamplingDataView(BigDecimal id, String ns, String nf, String area) {
         super(id);
         this.numberSample = ns;
         this.numberFood = nf;

@@ -42,7 +42,7 @@ public class CombosDAOJDBC implements CombosDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -75,7 +75,7 @@ public class CombosDAOJDBC implements CombosDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -108,7 +108,7 @@ public class CombosDAOJDBC implements CombosDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -141,7 +141,7 @@ public class CombosDAOJDBC implements CombosDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -174,7 +174,7 @@ public class CombosDAOJDBC implements CombosDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -207,7 +207,7 @@ public class CombosDAOJDBC implements CombosDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -240,7 +240,7 @@ public class CombosDAOJDBC implements CombosDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -273,7 +273,7 @@ public class CombosDAOJDBC implements CombosDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -306,7 +306,7 @@ public class CombosDAOJDBC implements CombosDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -339,7 +339,7 @@ public class CombosDAOJDBC implements CombosDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -372,7 +372,7 @@ public class CombosDAOJDBC implements CombosDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -405,7 +405,7 @@ public class CombosDAOJDBC implements CombosDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -438,7 +438,7 @@ public class CombosDAOJDBC implements CombosDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -471,7 +471,7 @@ public class CombosDAOJDBC implements CombosDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -504,7 +504,7 @@ public class CombosDAOJDBC implements CombosDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -537,7 +537,7 @@ public class CombosDAOJDBC implements CombosDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -585,7 +585,7 @@ public class CombosDAOJDBC implements CombosDAO {
         return gen_id;
     }
 
-    @Override
+//    @Override
     public List<Base> familyByName(String name) {
         ResultSet rs = null;
         PreparedStatement ps = null;
@@ -605,7 +605,7 @@ public class CombosDAOJDBC implements CombosDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -744,7 +744,7 @@ public class CombosDAOJDBC implements CombosDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 

@@ -2,6 +2,7 @@ package com.botanik.dao.impl;
 
 import com.botanik.model.Base;
 import com.botanik.model.Family;
+import java.math.BigDecimal;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -80,15 +81,15 @@ public class PlanetDAOJDBCTest {
     @Test
     public void testEdit() {
         System.out.println("edit");
-        model = new Family(1, "asdasdsd");
-        instance.edit(model);
+//        model = new Family(1, "asdasdsd");
+//        instance.edit(model);
 
     }
 
     @Test
     public void testGenusEdit() {
 
-        base = new Base(1, "asdasdsd");
+        base = new Base(BigDecimal.valueOf(1), "asdasdsd");
         instance.edit(base);
 
     }

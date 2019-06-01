@@ -44,8 +44,7 @@ public class PlanetDAOJDBC implements PlanetDAO {
             while (rs.next()) {
 
                 list.add(
-                        new Family(rs.getLong("id"),
-                                rs.getString("name")
+                        new Family(rs.getBigDecimal("id"), rs.getString("name")
                         )
                 );
 
@@ -163,11 +162,7 @@ public class PlanetDAOJDBC implements PlanetDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
 
-                list.add(
-                        new Base(rs.getLong("id"),
-                                rs.getString("name")
-                        )
-                );
+                list.add(new Base(rs.getBigDecimal("id"), rs.getString("name")));
 
             }
 //            base.setId(gen_id);
@@ -186,7 +181,7 @@ public class PlanetDAOJDBC implements PlanetDAO {
         ResultSet rs = null;
         PreparedStatement ps = null;
         Connection conn = null;
-        String SQL_SAVE_GENUS= "insert into genus(name,create_date,status) values(?,?,'a')";
+        String SQL_SAVE_GENUS = "insert into genus(name,create_date,status) values(?,?,'a')";
         try {
             try {
                 conn = DAOUtil.accessDBConnection();
@@ -240,7 +235,7 @@ public class PlanetDAOJDBC implements PlanetDAO {
         ResultSet rs = null;
         PreparedStatement ps = null;
         Connection conn = null;
-        String SQL_DELETE_GENUS= "update genus set status ='d'  where id = ? ";
+        String SQL_DELETE_GENUS = "update genus set status ='d'  where id = ? ";
         try {
             try {
                 conn = DAOUtil.accessDBConnection();

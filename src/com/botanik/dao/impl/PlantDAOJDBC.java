@@ -8,6 +8,7 @@ import com.botanik.model.Genus;
 import com.botanik.model.Plant;
  
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,7 +27,7 @@ public class PlantDAOJDBC implements PlantDAO {
 
     private Genus mapGenus(ResultSet rs) throws SQLException {
         Genus g = new Genus();
-        g.setId(rs.getLong(1));
+        g.setId(rs.getBigDecimal(1));
         g.setName(rs.getString(2));
 
         g.setFull_name(rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4));
@@ -80,25 +81,25 @@ public class PlantDAOJDBC implements PlantDAO {
                 Logger.getLogger(UserDAOJDBC.class.getName()).log(Level.SEVERE, null, ex);
             }
 //            conn.setAutoCommit(true);
-            Object[] values = {plant.getFamilyId(),
-                plant.getGenusId(),
-                plant.getSpeciesId(),
-                plant.getSpeciesAuthorId(),
-                plant.getRankId(),
-                plant.getInfraSpeciesId(),
-                plant.getInfrauthorId(),
-                plant.getRank2Id(),
-                plant.getIdentStatusId(),
-                plant.getIdentInstituteId(),
+            Object[] values = {plant.getFamilyId().intValue(),
+                plant.getGenusId().intValue(),
+                plant.getSpeciesId().intValue(),
+                plant.getSpeciesAuthorId().intValue(),
+                plant.getRankId().intValue(),
+                plant.getInfraSpeciesId().intValue(),
+                plant.getInfrauthorId().intValue(),
+                plant.getRank2Id().intValue(),
+                plant.getIdentStatusId().intValue(),
+                plant.getIdentInstituteId().intValue(),
                 plant.getPlantDesc(),
-                plant.getUsesId(),
-                plant.getVerNameId(),
-                plant.getAssesInforId(),
-                plant.getOtherKeyId(),
-                plant.getPlantFormId(),
-                plant.getInfraSpecies2Id(),
-                plant.getInfraAuthor2Id(),
-                plant.getIdentFromId(),
+                plant.getUsesId().intValue(),
+                plant.getVerNameId().intValue(),
+                plant.getAssesInforId().intValue(),
+                plant.getOtherKeyId().intValue(),
+                plant.getPlantFormId().intValue(),
+                plant.getInfraSpecies2Id().intValue(),
+                plant.getInfraAuthor2Id().intValue(),
+                plant.getIdentFromId().intValue(),
                 plant.getIdentificationDate(),
                 plant.getHeight(),               
                 new Date()};
@@ -106,7 +107,7 @@ public class PlantDAOJDBC implements PlantDAO {
             ps.execute();
             rs = ps.getGeneratedKeys();
             int gen_id = rs.next() ? rs.getInt(1) : 0;
-            plant.setId(gen_id);
+            plant.setId(BigDecimal.valueOf(gen_id));
             plant.setDaoStatus("1"); 
         } catch (SQLException e) {
             plant.setDaoStatus("0");

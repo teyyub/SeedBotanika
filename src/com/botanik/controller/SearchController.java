@@ -89,7 +89,7 @@ public class SearchController {
     @FXML
     public void initialize() {
         System.out.println("init SeedModel Controller");
-
+ 
         constructTable();
         mainTable.setOnMouseClicked((MouseEvent event) -> {
             if (event.getClickCount() == 2) {
@@ -155,7 +155,7 @@ public class SearchController {
 
     public void editForRegularUser(Number seedId) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Seed.class.getResource("view/userEdit.fxml"));
+        loader.setLocation(Seed.class.getResource("view/user/userView.fxml"));
         AnchorPane formPane = (AnchorPane) loader.load();
         dialogStage = new Stage();
         dialogStage.initStyle(StageStyle.UTILITY);
@@ -201,7 +201,8 @@ public class SearchController {
                 dialogStage.setResizable(false);
                 Scene scene = new Scene(formPane);
                 dialogStage.setScene(scene);
-                dialogStage.initModality(Modality.WINDOW_MODAL);
+//                dialogStage.setAlwaysOnTop(true);
+//                dialogStage.initModality(Modality.WINDOW_MODAL);
                 MainController controller = loader.getController();
                 controller.isPlantNew = false;
                 controller.isCollectionNew = false;

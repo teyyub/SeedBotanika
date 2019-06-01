@@ -2,6 +2,7 @@ package com.botanik.model;
 
 import com.botanik.dao.impl.CombosDAOJDBC;
 import com.botanik.dao.intf.CombosDAO;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,7 @@ public class DefaultCombo {
     private int comboId;
     private String origin;
     private String selected;
-    private Map<Number, String> comboMap;
+    private Map<BigDecimal, String> comboMap;
 
     CombosDAO baseDao = new CombosDAOJDBC();
 
@@ -49,7 +50,7 @@ public class DefaultCombo {
         });
     }
 
-    public Number selectedId() {
+    public BigDecimal selectedId() {
         if (defaultCombo.getSelectionModel().getSelectedItem() != null) {
             String filter = defaultCombo.getSelectionModel().getSelectedItem().toString();
 
@@ -62,7 +63,7 @@ public class DefaultCombo {
                 }
             }
         }
-        return -1;
+        return BigDecimal.valueOf(-1);
 
 //        if (defaultCombo.getSelectionModel().getSelectedIndex() == -1) {
 //            return -1;
@@ -70,7 +71,6 @@ public class DefaultCombo {
 //        return ((Base) defaultCombo.getSelectionModel().getSelectedItem()).getId();
     }
 
-    
     public void loadComboById() {
         defaultCombo.setItems(
                 FXCollections.observableArrayList(
@@ -88,7 +88,7 @@ public class DefaultCombo {
         }
     }
 
-    public String comboTextById(Number id) {
+    public String comboTextById(BigDecimal id) {
         loadComboMap();
         if (!comboMap.containsKey(id)) {
             return "";

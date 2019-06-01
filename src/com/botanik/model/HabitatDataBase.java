@@ -1,27 +1,30 @@
 package com.botanik.model;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author USER
  */
 public class HabitatDataBase extends Base {
 
-    private Number habitat;
-    private Number landForm;
+    private BigDecimal habitat;
+    private BigDecimal landForm;
     private String geology;
-    private Number aspect;
-    private Number factor;
-    private Number soil;
+    private BigDecimal aspect;
+    private BigDecimal factor;
+    private BigDecimal soil;
     private String associated;
-    private Number slope;
-    private Number landUse;
+    private BigDecimal slope;
+    private BigDecimal landUse;
     private String siteNotes;
     private boolean isHabitatNew = true;
 
     public HabitatDataBase() {
     }
 
-    public HabitatDataBase(Number habitat, Number landForm, String geology, Number aspect, Number factor, Number soil, String associated, Number slope, Number landUse, String siteNotes) {
+    public HabitatDataBase(BigDecimal habitat, BigDecimal landForm, String geology, BigDecimal aspect, BigDecimal factor, BigDecimal soil,
+            String associated, BigDecimal slope, BigDecimal landUse, String siteNotes) {
         this.habitat = habitat;
         this.landForm = landForm;
         this.geology = geology;
@@ -34,7 +37,8 @@ public class HabitatDataBase extends Base {
         this.siteNotes = siteNotes;
     }
 
-    public HabitatDataBase(Number id, Number habitat, Number landForm, String geology, Number aspect, Number factor, Number soil, String associated, Number slope, Number landUse, String siteNotes) {
+    public HabitatDataBase(BigDecimal id, BigDecimal habitat, BigDecimal landForm, 
+            String geology, BigDecimal aspect, BigDecimal factor, BigDecimal soil, String associated, BigDecimal slope, BigDecimal landUse, String siteNotes) {
         super(id);
         this.habitat = habitat;
         this.landForm = landForm;
@@ -48,11 +52,11 @@ public class HabitatDataBase extends Base {
         this.siteNotes = siteNotes;
     }
 
-    public Number getHabitat() {
+    public BigDecimal getHabitat() {
         return habitat;
     }
 
-    public Number getLandForm() {
+    public BigDecimal getLandForm() {
         return landForm;
     }
 
@@ -60,15 +64,15 @@ public class HabitatDataBase extends Base {
         return geology;
     }
 
-    public Number getAspect() {
+    public BigDecimal getAspect() {
         return aspect;
     }
 
-    public Number getFactor() {
+    public BigDecimal getFactor() {
         return factor;
     }
 
-    public Number getSoil() {
+    public BigDecimal getSoil() {
         return soil;
     }
 
@@ -76,11 +80,11 @@ public class HabitatDataBase extends Base {
         return associated;
     }
 
-    public Number getSlope() {
+    public BigDecimal getSlope() {
         return slope;
     }
 
-    public Number getLandUse() {
+    public BigDecimal getLandUse() {
         return landUse;
     }
 

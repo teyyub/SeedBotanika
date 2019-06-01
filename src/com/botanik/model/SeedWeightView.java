@@ -1,6 +1,8 @@
  
 package com.botanik.model;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author USER
@@ -22,7 +24,7 @@ public class SeedWeightView extends Base{
     }
     
  
-    public SeedWeightView(Number id,String weight_1000, String weight_100, String type_weight, String fruit_weight,String perfruit) {
+    public SeedWeightView(BigDecimal id,String weight_1000, String weight_100, String type_weight, String fruit_weight,String perfruit) {
         super(id);
         this.weight_1000 = weight_1000;
         this.weight_100 = weight_100;

@@ -81,7 +81,7 @@
                               <TextField fx:id="seedIdTextField" editable="false" GridPane.columnIndex="2" />
                               <TextArea fx:id="plantDescTextArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="14" GridPane.rowSpan="2" />
                               <Label text="Taxon" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                              <Label prefHeight="30.0" prefWidth="174.0" text="Organisation/Institute" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label prefHeight="30.0" prefWidth="174.0" text="\%Organisation/Institute" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <Label text="Altitude" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="13" />
                               <TextField fx:id="orgInsTextField" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                               <TextField fx:id="familyTextField" GridPane.columnIndex="2" GridPane.rowIndex="2" />

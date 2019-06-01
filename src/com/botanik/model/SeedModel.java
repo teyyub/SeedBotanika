@@ -1,5 +1,7 @@
 package com.botanik.model;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author USER
@@ -31,7 +33,8 @@ public class SeedModel extends Base {
         this.seedWeightId = seedWeightId;
     }
 
-    public SeedModel(Number plantId, Number locationId, Number habitatId, Number samplingId, Number herbariumId, Number collectionId, Number morphologyId, Number seedWeightId, Number id) {
+    public SeedModel(Number plantId, Number locationId, Number habitatId, Number samplingId, Number herbariumId, Number collectionId, Number morphologyId, 
+            Number seedWeightId, BigDecimal id) {
         super(id);
         this.plantId = plantId;
         this.locationId = locationId;

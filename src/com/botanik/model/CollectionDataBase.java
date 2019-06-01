@@ -1,5 +1,6 @@
 package com.botanik.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -12,9 +13,9 @@ public class CollectionDataBase extends Base {
     private   String projectName;
     private   String accessionNumber;
     private   Date dateCollection;
-    private   Number organizeInstituteId;
-    private   Number wildCultivitedId;
-    private   Number collectorInstituteId;
+    private   BigDecimal organizeInstituteId;
+    private   BigDecimal wildCultivitedId;
+    private   BigDecimal collectorInstituteId;
     private   boolean isCollectionNew = true;
 
     public CollectionDataBase() {
@@ -22,10 +23,10 @@ public class CollectionDataBase extends Base {
    
    
    
-    public CollectionDataBase(Number id,
+    public CollectionDataBase(BigDecimal id,
             String collectionNumber, String projectName, String accessionNumber, Date dateCollection, 
-            Number organizeInstituteId, Number wildCultivitedId, 
-            Number collectorInstituteId) {
+            BigDecimal organizeInstituteId, BigDecimal wildCultivitedId, 
+            BigDecimal collectorInstituteId) {
         super(id);
         this.collectionNumber = collectionNumber;
         this.projectName = projectName;
@@ -36,7 +37,8 @@ public class CollectionDataBase extends Base {
         this.collectorInstituteId = collectorInstituteId;
     }
 
-    public CollectionDataBase(String collectionNumber, String projectName, String accessionNumber, Date dateCollection, Number organizeInstituteId, Number wildCultivitedId, Number collectorInstituteId) {
+    public CollectionDataBase(String collectionNumber, String projectName, String accessionNumber, Date dateCollection, 
+            BigDecimal organizeInstituteId, BigDecimal wildCultivitedId, BigDecimal collectorInstituteId) {
         this.collectionNumber = collectionNumber;
         this.projectName = projectName;
         this.accessionNumber = accessionNumber;
@@ -64,15 +66,15 @@ public class CollectionDataBase extends Base {
         return dateCollection;
     }
 
-    public Number getOrganizeInstituteId() {
+    public BigDecimal getOrganizeInstituteId() {
         return organizeInstituteId;
     }
 
-    public Number getWildCultivitedId() {
+    public BigDecimal getWildCultivitedId() {
         return wildCultivitedId;
     }
 
-    public Number getCollectorInstituteId() {
+    public BigDecimal getCollectorInstituteId() {
         return collectorInstituteId;
     }
 

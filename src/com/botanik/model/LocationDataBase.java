@@ -1,13 +1,15 @@
 package com.botanik.model;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author USER
  */
 public class LocationDataBase extends Base{
     
-    private Number countryId;
-    private Number stateId;   
+    private BigDecimal countryId;
+    private BigDecimal stateId;   
     private String latitude;
     private String latMethod;
     private String grid;
@@ -35,7 +37,7 @@ public class LocationDataBase extends Base{
         this.altitudeMethod = altitudeMethod;
     }
 
-    public LocationDataBase(Number id, Number countryId, Number stateId,   String latitude, String latMethod, String grid, String altitude,  String description, 
+    public LocationDataBase(BigDecimal id, BigDecimal countryId, BigDecimal stateId,   String latitude, String latMethod, String grid, String altitude,  String description, 
             String longtitude, String latUnits, String gps, String altitudeMethod) {
         super(id);
         this.countryId = countryId;                
@@ -51,7 +53,7 @@ public class LocationDataBase extends Base{
         this.altitudeMethod = altitudeMethod;
     }
 
-    public LocationDataBase(Number countryId, Number stateId,  String latitude, String latMethod, String grid, String altitude, String description, String longtitude, String latUnits, String gps, String altitudeMethod) {
+    public LocationDataBase(BigDecimal countryId, BigDecimal stateId,  String latitude, String latMethod, String grid, String altitude, String description, String longtitude, String latUnits, String gps, String altitudeMethod) {
         this.countryId = countryId;
         this.stateId = stateId;        
         this.latitude = latitude;
@@ -67,11 +69,11 @@ public class LocationDataBase extends Base{
     
    
 
-    public Number getCountryId() {
+    public BigDecimal getCountryId() {
         return countryId;
     }
 
-    public Number getStateId() {
+    public BigDecimal getStateId() {
         return stateId;
     }
 

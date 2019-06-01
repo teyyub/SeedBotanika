@@ -6,6 +6,7 @@ import static com.botanik.dao.DAOUtil.prepareStatement;
 import com.botanik.dao.intf.HabitatDataDAO;
 import com.botanik.model.HabitatDataBase;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,15 +37,15 @@ public class HabitatDataDAOJDBC implements HabitatDataDAO {
                 Logger.getLogger(HabitatDataDAOJDBC.class.getName()).log(Level.SEVERE, null, ex);
             }
             Object[] values = {
-                model.getHabitat(),
-                model.getLandForm(),
+                model.getHabitat().intValue(),
+                model.getLandForm().intValue(),
                 model.getGeology(),
-                model.getAspect(),
-                model.getFactor(),
-                model.getSoil(),                
+                model.getAspect().intValue(),
+                model.getFactor().intValue(),
+                model.getSoil().intValue(),                
                 model.getAssociated(),
-                model.getSlope(),
-                model.getLandUse(),
+                model.getSlope().intValue(),
+                model.getLandUse().intValue(),
                 model.getSiteNotes(),
                 new Date()};
 
@@ -52,7 +53,7 @@ public class HabitatDataDAOJDBC implements HabitatDataDAO {
             ps.execute();
             rs = ps.getGeneratedKeys();
             int gen_id = rs.next() ? rs.getInt(1) : 0;
-            model.setId(gen_id);
+            model.setId(BigDecimal.valueOf(gen_id));
             model.setDaoStatus("1");
         } catch (SQLException e) {
             model.setDaoStatus("0");
@@ -76,15 +77,15 @@ public class HabitatDataDAOJDBC implements HabitatDataDAO {
                 Logger.getLogger(HabitatDataDAOJDBC.class.getName()).log(Level.SEVERE, null, ex);
             }
             Object[] values = {
-                model.getHabitat(),
-                model.getLandForm(),
+                model.getHabitat().intValue(),
+                model.getLandForm().intValue(),
                 model.getGeology(),
-                model.getAspect(),
-                model.getFactor(),
-                model.getSoil(),                
+                model.getAspect().intValue(),
+                model.getFactor().intValue(),
+                model.getSoil().intValue(),                
                 model.getAssociated(),
-                model.getSlope(),
-                model.getLandUse(),
+                model.getSlope().intValue(),
+                model.getLandUse().intValue(),
                 model.getSiteNotes(),
                 model.getId()
             };

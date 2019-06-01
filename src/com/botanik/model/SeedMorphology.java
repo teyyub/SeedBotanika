@@ -1,5 +1,7 @@
 package com.botanik.model;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author USER
@@ -7,19 +9,19 @@ package com.botanik.model;
 public class SeedMorphology extends Base {
 
     private String size;
-    private Number typeId;
+    private BigDecimal typeId;
     private String length;
     private String width;
     private String height;
-    private Number aidId;
+    private BigDecimal aidId;
     private String configuration;
-    private Number embrioId;
+    private BigDecimal embrioId;
     private boolean isSeedMorphologyNew = true;
 
     public SeedMorphology() {
     }
 
-    public SeedMorphology(String size, Number typeId, String length, String width, String height, Number aidId, String configuration, Number embrioId) {
+    public SeedMorphology(String size, BigDecimal typeId, String length, String width, String height, BigDecimal aidId, String configuration, BigDecimal embrioId) {
         this.size = size;
         this.typeId = typeId;
         this.length = length;
@@ -30,7 +32,8 @@ public class SeedMorphology extends Base {
         this.embrioId = embrioId;
     }
 
-    public SeedMorphology(Number id, String size, Number typeId, String length, String width, String height, Number aidId, String configuration, Number embrioId) {
+    public SeedMorphology(BigDecimal id, String size, BigDecimal typeId, String length, String width, String height, BigDecimal aidId,
+            String configuration, BigDecimal embrioId) {
         super(id);
         this.size = size;
         this.typeId = typeId;
@@ -46,7 +49,7 @@ public class SeedMorphology extends Base {
         return size;
     }
 
-    public Number getTypeId() {
+    public BigDecimal getTypeId() {
         return typeId;
     }
 
@@ -62,7 +65,7 @@ public class SeedMorphology extends Base {
         return height;
     }
 
-    public Number getAidId() {
+    public BigDecimal getAidId() {
         return aidId;
     }
 
@@ -70,7 +73,7 @@ public class SeedMorphology extends Base {
         return configuration;
     }
 
-    public Number getEmbrioId() {
+    public BigDecimal getEmbrioId() {
         return embrioId;
     }
 
@@ -82,6 +85,4 @@ public class SeedMorphology extends Base {
         this.isSeedMorphologyNew = isSeedMorphologyNew;
     }
 
-    
-    
 }

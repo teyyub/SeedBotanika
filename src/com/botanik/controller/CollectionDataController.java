@@ -11,6 +11,7 @@ import com.botanik.model.CollectionDataBase;
 import com.botanik.model.CollectionTableModel;
 import com.botanik.model.SamplingDataBase;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -399,28 +400,28 @@ public class CollectionDataController {
         }
     }
 
-    private Number organizeInstituteId() {
+    private BigDecimal organizeInstituteId() {
         if (organizeInstituteCb.getSelectionModel().getSelectedIndex() != -1) {
             Base base = (Base) organizeInstituteCb.getSelectionModel().getSelectedItem();
             return base.getId();
         }
-        return -1;
+        return BigDecimal.valueOf(-1);
     }
 
-    private Number wildCultivitedId() {
+    private BigDecimal wildCultivitedId() {
         if (wildCultivitedCb.getSelectionModel().getSelectedIndex() != -1) {
             Base base = (Base) wildCultivitedCb.getSelectionModel().getSelectedItem();
             return base.getId();
         }
-        return -1;
+        return BigDecimal.valueOf(-1);
     }
 
-    private Number collectorInstituteId() {
+    private BigDecimal collectorInstituteId() {
         if (collectorInstituteCb.getSelectionModel().getSelectedIndex() != -1) {
             Base base = (Base) collectorInstituteCb.getSelectionModel().getSelectedItem();
             return base.getId();
         }
-        return -1;
+        return BigDecimal.valueOf(-1);
     }
 
     @FXML

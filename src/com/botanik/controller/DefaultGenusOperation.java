@@ -36,6 +36,7 @@ import javafx.stage.Stage;
  */
 public class DefaultGenusOperation {
 
+    private int combo_id = 2;
     CombosDAO baseDao = new CombosDAOJDBC();
     @FXML
     private TableView genusTable;
@@ -50,9 +51,9 @@ public class DefaultGenusOperation {
 
     ObservableList<Base> genusList;
     List<Base> genuses;
-    
+
     Base selectedItem;
-            
+
     @FXML
     private TextField nameText;
 
@@ -71,8 +72,8 @@ public class DefaultGenusOperation {
 
     }
 
-    private void loadGenuses() {     
-          genuses = baseDao.combosByIds(2);
+    private void loadGenuses() {
+        genuses = baseDao.combosByIds(2);
     }
 
     private void loadTable() {
@@ -89,7 +90,9 @@ public class DefaultGenusOperation {
         if ((nameText.getText().equals("")) || (nameText.getText().length() == 0)) {
             loadTable();
         } else {
-            Combo c = new Combo(2, nameText.getText());
+            Combo c = new Combo();
+            c.setComboId(combo_id);
+            c.setName(nameText.getText());
             genuses = baseDao.loadByCombo(c);
             genusList = FXCollections.observableArrayList(genuses);
             genusTable.setItems(genusList);
@@ -113,7 +116,7 @@ public class DefaultGenusOperation {
         } else {
             if (isDeleteOk()) {
                 try {
-                    baseDao.deleteCombosById(selectedItem.getId(),2);
+                    baseDao.deleteCombosById(selectedItem.getId(), 2);
                     loadTable();
                 } catch (Exception e) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -148,13 +151,11 @@ public class DefaultGenusOperation {
 //            alert.initOwner(dialogStage);
             alert.setContentText("Item is not selected");
             alert.showAndWait();
-        } else {            
+        } else {
             editForm("view/addFrm.fxml", "Edit");
         }
         loadTable();
     }
-
-    
 
     private void createForm(String view, String title, boolean isNew) {
         try {
@@ -171,7 +172,7 @@ public class DefaultGenusOperation {
             stage.setResizable(false);
             AddFormController controller = loader.getController();
             controller.setCombos_id(2);
-            controller.setIsNew(isNew); 
+            controller.setIsNew(isNew);
             controller.setDialogStage(stage);
             stage.showAndWait();
 
@@ -181,8 +182,8 @@ public class DefaultGenusOperation {
         }
 
     }
-    
-     private void editForm(String view, String title ) {
+
+    private void editForm(String view, String title) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Seed.class.getResource(view));
@@ -196,8 +197,8 @@ public class DefaultGenusOperation {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setResizable(false);
             AddFormController controller = loader.getController();
-            controller.setModel(this.selectedItem);            
-            controller.setIsNew(false); 
+            controller.setModel(this.selectedItem);
+            controller.setIsNew(false);
             controller.setCombos_id(2);
             controller.init();
             controller.setDialogStage(stage);
@@ -209,5 +210,5 @@ public class DefaultGenusOperation {
         }
 
     }
-    
+
 }

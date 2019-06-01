@@ -8,6 +8,7 @@ import com.botanik.dao.intf.HerbariumSpecimenDAO;
 import com.botanik.model.HerbariumSpecimenBase;
  
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -39,7 +40,7 @@ public class HerbariumSpecimenDAOJDBC implements HerbariumSpecimenDAO {
             ps.execute();
             rs = ps.getGeneratedKeys();
             int gen_id = rs.next() ? rs.getInt(1) : 0;
-            base.setId(gen_id);
+            base.setId(BigDecimal.valueOf(gen_id));
             base.setDaoStatus("1");
         } catch (SQLException e) {
             base.setDaoStatus("0");
@@ -63,7 +64,8 @@ public class HerbariumSpecimenDAOJDBC implements HerbariumSpecimenDAO {
             } catch (IOException | ClassNotFoundException ex) {
                 Logger.getLogger(UserDAOJDBC.class.getName()).log(Level.SEVERE, null, ex);
             }
-            Object[] values = {base.getNumber(), base.getLocationId(), base.getHerbarium(), base.getDublicatedId(),base.getVoucher(), base.getId()};
+            Object[] values = {base.getNumber(), 
+                base.getLocationId().intValue(), base.getHerbarium(), base.getDublicatedId().intValue(),base.getVoucher(), base.getId()};
             ps = prepareStatement(conn, SQL_UPDATE_HERBARIUM_SPECIMEN,   values);
             ps.executeUpdate();
 //            rs = ps.getGeneratedKeys();

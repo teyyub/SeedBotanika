@@ -6,6 +6,7 @@ import static com.botanik.dao.DAOUtil.prepareStatement;
 import com.botanik.dao.intf.LocationDataDAO;
 import com.botanik.model.LocationDataBase;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -53,7 +54,7 @@ public class LocationDataDAOJDBC implements LocationDataDAO {
             ps.execute();
             rs = ps.getGeneratedKeys();
             int gen_id = rs.next() ? rs.getInt(1) : 0;
-            model.setId(gen_id);
+            model.setId(BigDecimal.valueOf(gen_id));
             model.setDaoStatus("1");
         } catch (SQLException e) {
             model.setDaoStatus("0");
@@ -155,9 +156,9 @@ public class LocationDataDAOJDBC implements LocationDataDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 model = new LocationDataBase(
-                        rs.getInt("id"),
-                        rs.getInt("country_id"),
-                        rs.getInt("state_id"),                        
+                        rs.getBigDecimal("id"),
+                        rs.getBigDecimal("country_id"),
+                        rs.getBigDecimal("state_id"),                        
                         rs.getString("latitude"),
                         rs.getString("lat_long_Method"),
                         rs.getString("grid"),
@@ -263,9 +264,9 @@ public class LocationDataDAOJDBC implements LocationDataDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 model = new LocationDataBase(
-                        rs.getInt("id"),
-                        rs.getInt("country_id"),
-                        rs.getInt("state_id"),                       
+                        rs.getBigDecimal("id"),
+                        rs.getBigDecimal("country_id"),
+                        rs.getBigDecimal("state_id"),                       
                         rs.getString("latitude"),
                         rs.getString("lat_long_Method"),
                         rs.getString("grid"),

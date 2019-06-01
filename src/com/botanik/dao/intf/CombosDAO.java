@@ -18,7 +18,7 @@ public interface CombosDAO {
     
     List<Base> families();
     
-    List<Base> familyByName(String name);
+//    List<Base> familyByName(String name);
     
     List<Base> loadByCombo(Combo model);
     

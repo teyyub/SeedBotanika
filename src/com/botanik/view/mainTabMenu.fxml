@@ -61,7 +61,7 @@
                            <children>
                               <Label text="Family" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                               <Label text="Taxon" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                              <Label text="Azerbaijan bane" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                              <Label text="Azerbaijan Name" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
                               <Label text="Rank" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
                               <Label text="Infra-Specific Species" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
                               <Label text="Infra-Specific Author" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
@@ -126,7 +126,6 @@
                               </Label>
                               <Label text="Id" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                               <TextField fx:id="seedIdTextField" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                              <Button mnemonicParsing="false" onAction="#editFamily" prefHeight="25.0" prefWidth="57.0" text="..." visible="false" GridPane.columnIndex="5" GridPane.rowIndex="3" />
                               <TextArea fx:id="plantDescTextArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.rowIndex="15" GridPane.rowSpan="2" />
                               <Label text="Synonyms" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
                               <ComboBox fx:id="speciesCb" editable="true" prefHeight="25.0" prefWidth="171.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />

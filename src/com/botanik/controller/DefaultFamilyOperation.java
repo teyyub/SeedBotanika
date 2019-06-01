@@ -35,7 +35,7 @@ import javafx.stage.Stage;
  * @author teyyub , 11:08:01 AM
  */
 public class DefaultFamilyOperation {
-
+    int combo_id =1;
     CombosDAO baseDao = new CombosDAOJDBC();
     @FXML
     private TableView familyTable;
@@ -50,11 +50,11 @@ public class DefaultFamilyOperation {
 
     ObservableList<Base> familyList;
     List<Base> families;
-    
+
     Base selectedItem;
-    
+
     private Number gen_id = null;
-            
+
     @FXML
     private TextField familyNameText;
 
@@ -74,8 +74,8 @@ public class DefaultFamilyOperation {
     }
 
     private void loadFamilies() {
-     
-          families = baseDao.combosByIds(1);
+
+        families = baseDao.combosByIds(1);
     }
 
     private void loadFamilyTable() {
@@ -92,7 +92,9 @@ public class DefaultFamilyOperation {
         if ((familyNameText.getText().equals("")) || (familyNameText.getText().length() == 0)) {
             loadFamilyTable();
         } else {
-            Combo c = new Combo(1,familyNameText.getText());
+            Combo c = new Combo();
+            c.setComboId(combo_id);
+            c.setName(familyNameText.getText());
             families = baseDao.loadByCombo(c);
             familyList = FXCollections.observableArrayList(families);
             familyTable.setItems(familyList);
@@ -140,7 +142,7 @@ public class DefaultFamilyOperation {
     private void add() {
         createForm("view/addFrm.fxml", "Add Family", true);
         loadFamilyTable();
-        System.out.println("gen_id " +gen_id);
+        System.out.println("gen_id " + gen_id);
     }
 
     @FXML
@@ -152,13 +154,11 @@ public class DefaultFamilyOperation {
 //            alert.initOwner(dialogStage);
             alert.setContentText("Family is not selected");
             alert.showAndWait();
-        } else {            
+        } else {
             editForm("view/addFrm.fxml", "Edit Family");
         }
         loadFamilyTable();
     }
-
-    
 
     private void createForm(String view, String title, boolean isNew) {
         try {
@@ -175,14 +175,14 @@ public class DefaultFamilyOperation {
             stage.setResizable(false);
             AddFormController controller = loader.getController();
             controller.setCombos_id(1);
-            controller.setIsNew(isNew); 
-            controller.setDialogStage(stage);            
+            controller.setIsNew(isNew);
+            controller.setDialogStage(stage);
             stage.showAndWait();
             gen_id = controller.getModel().getId();
-            if(gen_id!=null){
+            if (gen_id != null) {
                 System.out.println("salam");
                 familyTable.getSelectionModel().selectAll();
-                
+
             }
 
         } catch (IOException ex) {
@@ -191,8 +191,8 @@ public class DefaultFamilyOperation {
         }
 
     }
-    
-     private void editForm(String view, String title ) {
+
+    private void editForm(String view, String title) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Seed.class.getResource(view));
@@ -206,8 +206,8 @@ public class DefaultFamilyOperation {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setResizable(false);
             AddFormController controller = loader.getController();
-            controller.setModel(this.selectedItem);            
-            controller.setIsNew(false); 
+            controller.setModel(this.selectedItem);
+            controller.setIsNew(false);
             controller.setCombos_id(1);
             controller.init();
             controller.setDialogStage(stage);
@@ -219,5 +219,5 @@ public class DefaultFamilyOperation {
         }
 
     }
-    
+
 }

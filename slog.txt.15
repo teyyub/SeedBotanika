@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-05-27T14:11:54</date>
+  <millis>1558951914023</millis>
+  <sequence>15</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.logger.Logger</class>
+  <method>save</method>
+  <thread>14</thread>
+  <message>started makeRowHeight</message>
+</record>
+<record>
+  <date>2019-05-27T14:11:54</date>
+  <millis>1558951914026</millis>
+  <sequence>16</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.logger.Logger</class>
+  <method>save</method>
+  <thread>14</thread>
+  <message>end of  makeRowHeight</message>
+</record>
+<record>
+  <date>2019-05-27T14:11:54</date>
+  <millis>1558951914027</millis>
+  <sequence>17</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.logger.Logger</class>
+  <method>save</method>
+  <thread>14</thread>
+  <message>end writeToExcel</message>
+</record>
+<record>
+  <date>2019-05-27T14:11:54</date>
+  <millis>1558951914042</millis>
+  <sequence>18</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.logger.Logger</class>
+  <method>save</method>
+  <thread>14</thread>
+  <message>C:\Users\USER\Desktop\flash\SeedBotanika8\SeedBotanika/1558951912464.xls</message>
+</record>
+<record>
+  <date>2019-05-27T14:11:55</date>
+  <millis>1558951915313</millis>
+  <sequence>19</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.logger.Logger</class>
+  <method>save</method>
+  <thread>14</thread>
+  <message>C:\Users\USER\Desktop\flash\SeedBotanika8\SeedBotanika/1558951912464.xls</message>
+</record>
+<record>
+  <date>2019-05-27T14:11:55</date>
+  <millis>1558951915320</millis>
+  <sequence>20</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.logger.Logger</class>
+  <method>save</method>
+  <thread>14</thread>
+  <message>C:\Users\USER\Desktop\flash\SeedBotanika8\SeedBotanika/1558951912464.xls</message>
+</record>
+<record>
+  <date>2019-05-27T14:11:56</date>
+  <millis>1558951916468</millis>
+  <sequence>21</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.logger.Logger</class>
+  <method>save</method>
+  <thread>14</thread>
+  <message>C:\Users\USER\Desktop\flash\SeedBotanika8\SeedBotanika/1558951912464.xls</message>
+</record>
+<record>
+  <date>2019-05-27T14:11:56</date>
+  <millis>1558951916931</millis>
+  <sequence>22</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.logger.Logger</class>
+  <method>save</method>
+  <thread>14</thread>
+  <message>started search</message>
+</record>
+<record>
+  <date>2019-05-27T14:11:57</date>
+  <millis>1558951917024</millis>
+  <sequence>23</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.logger.Logger</class>
+  <method>save</method>
+  <thread>14</thread>
+  <message>started List&lt;Search&gt; search(SearchModel model)</message>
+</record>
+<record>
+  <date>2019-05-27T14:11:57</date>
+  <millis>1558951917033</millis>
+  <sequence>24</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.logger.Logger</class>
+  <method>save</method>
+  <thread>14</thread>
+  <message>search model list size 3</message>
+</record>
+<record>
+  <date>2019-05-27T14:12:49</date>
+  <millis>1558951969926</millis>
+  <sequence>25</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.logger.Logger</class>
+  <method>save</method>
+  <thread>14</thread>
+  <message>started search</message>
+</record>
+<record>
+  <date>2019-05-27T14:12:49</date>
+  <millis>1558951969928</millis>
+  <sequence>26</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.logger.Logger</class>
+  <method>save</method>
+  <thread>14</thread>
+  <message>started List&lt;Search&gt; search(SearchModel model)</message>
+</record>
+<record>
+  <date>2019-05-27T14:12:49</date>
+  <millis>1558951969935</millis>
+  <sequence>27</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.logger.Logger</class>
+  <method>save</method>
+  <thread>14</thread>
+  <message>search model list size 3</message>
+</record>
+<record>
+  <date>2019-05-27T14:12:56</date>
+  <millis>1558951976614</millis>
+  <sequence>28</sequence>
+  <logger>Mylog</logger>
+  <level>INFO</level>
+  <class>com.botanik.logger.Logger</class>
+  <method>save</method>
+  <thread>14</thread>
+  <message>end of export</message>
+</record>

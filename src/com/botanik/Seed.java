@@ -1,6 +1,5 @@
 package com.botanik;
 
-import com.botanik.model.LocalIcon;
 import com.botanik.model.Menu;
 import java.io.IOException;
 import javafx.application.Application;
@@ -35,7 +34,6 @@ public class Seed extends Application {
             
             FXMLLoader loader = new FXMLLoader();
 //            loader.setLocation(Seed.class.getResource("view/Login.fxml"));
-
 //            FXMLLoader loader = new FXMLLoader(getClass().getResource("view/splash.fxml"));
             loader.setLocation(Seed.class.getResource("view/splash.fxml"));
             loginLayout = (AnchorPane) loader.load();

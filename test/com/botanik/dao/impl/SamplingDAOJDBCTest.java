@@ -2,6 +2,7 @@ package com.botanik.dao.impl;
 
 import com.botanik.dao.intf.SamplingDataDAO;
 import com.botanik.model.SamplingDataBase;
+import java.math.BigDecimal;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -49,7 +50,7 @@ public class SamplingDAOJDBCTest {
 
     @Test
     public void testEdit(){
-        SamplingDataBase modelUpdate = new SamplingDataBase(1,"123Sdf1234", "sd345a", "4", "23", "asdasdsda");
+        SamplingDataBase modelUpdate = new SamplingDataBase(BigDecimal.valueOf(1),"123Sdf1234", "sd345a", "4", "23", "asdasdsda");
         instance.update(modelUpdate);
     }
     

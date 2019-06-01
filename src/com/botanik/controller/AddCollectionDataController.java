@@ -4,6 +4,7 @@ import com.botanik.dao.impl.CollectionDataDAOJDBC;
 import com.botanik.dao.intf.CollectionDataDAO;
 import com.botanik.model.Base;
 import com.botanik.model.CollectionDataBase;
+import java.math.BigDecimal;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -82,7 +83,7 @@ public class AddCollectionDataController {
     }
 
     private void updateModel() {
-        Number id = model.getId();
+        BigDecimal id = model.getId();
         model = new CollectionDataBase(
                 id,
                 numberTextField.getText().trim(),
@@ -96,23 +97,23 @@ public class AddCollectionDataController {
         dao.update(model);
     }
 
-    private Number organizeInstituteId() {
+    private BigDecimal organizeInstituteId() {
         if (organisationCb.getSelectionModel().getSelectedIndex() == -1) {
-            return -1;
+            return BigDecimal.valueOf(-1);
         }
         return ((Base) organisationCb.getSelectionModel().getSelectedItem()).getId();
     }
 
-    private Number wildCultivitedId() {
+    private BigDecimal wildCultivitedId() {
         if (wildCb.getSelectionModel().getSelectedIndex() == -1) {
-            return -1;
+            return BigDecimal.valueOf(-1);
         }
         return ((Base) wildCb.getSelectionModel().getSelectedItem()).getId();
     }
 
-    private Number collectorInstituteId() {
+    private BigDecimal collectorInstituteId() {
         if (collectorCb.getSelectionModel().getSelectedIndex() == -1) {
-            return -1;
+            return BigDecimal.valueOf(-1);
         }
         return ((Base) collectorCb.getSelectionModel().getSelectedItem()).getId();
     }

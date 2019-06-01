@@ -39,6 +39,7 @@ import com.botanik.model.SeedWeight;
 import com.project.file.intf.FileOperation;
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -427,22 +428,6 @@ public class MainController implements Initializable {
         loadIdentifiedFrom();
         loadSpeciesAuthor();
 
-//        loadGenusAutoCompletion();
-//        loadSpeciesAutoCompletion();
-//        loadSpeciesAuthorAutoCompletion();
-//        loadSpeciesAuthorAutoCompletion();
-//        loadRankAutoCompletion();
-//        loadInfSpeciesAutoCompletion();
-//        loadInfSpeciesAuthorAutoCompletion();
-//        loadRank2AutoCompletion();
-//        loadIdenStatusAutoCompletion();
-//        loadIdenNameAutoCompletion();
-//        loadUsesAutoCompletion();
-//        loadVernacularAutoCompletion();
-//        loadAssInfAutoCompletion();
-//        loadOtherKeyAutoCompletion();
-//        loadPlantFormAutoCompletion();
-//        loadIdentFromAutoCompletion();
     }
 
     private void handleSeedWeight() {
@@ -1071,12 +1056,11 @@ public class MainController implements Initializable {
         loadFamilyCombos();
     }
 
-    @FXML
-    private void editFamily() {
-        createForm("view/addFrm.fxml", "Add Family");
-        loadFamilyCombos();
-    }
-
+//    @FXML
+//    private void editFamily() {
+//        createForm("view/addFrm.fxml", "Add Family");
+//        loadFamilyCombos();
+//    }
     @FXML
     private void addGenus() {
         createForm("view/genusOperation.fxml", "Add Genus");
@@ -1284,9 +1268,7 @@ public class MainController implements Initializable {
     private void createForm(String view, String title) {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader
-                    .setLocation(Seed.class
-                            .getResource(view));
+            loader.setLocation(Seed.class.getResource(view));
 
             AnchorPane layout = (AnchorPane) loader.load();
 
@@ -1299,6 +1281,8 @@ public class MainController implements Initializable {
             stage.getIcons().add(new LocalIcon().getIcon());
 
             stage.showAndWait();
+
+            System.out.println("after stage close");
 
         } catch (IOException ex) {
             Logger.getLogger(CollectionDataBase.class
@@ -1343,40 +1327,39 @@ public class MainController implements Initializable {
     private void savePlant() {
         defaultCombo = new DefaultCombo(familyCb);
 
-        if (defaultCombo.isInputValid()) {
-            if (isPlantNew) {
-                savePlantModel();
-                defaultSeed.setPlant(plantModel);
-//                seedModel.setPlantId(plantModel.getId());
-            } else {
-                updatePlantModel();
-                defaultSeed.setPlant(plantModel);
-            }
-            if (plantModel.getDaoStatus().equals("1")) {
-                new DefaultAlert("Data is saved").show();
-            } else {
-                new DefaultAlert("Data is not saved").show();
-            }
+//        if (defaultCombo.isInputValid()) {
+        if (isPlantNew) {
+            savePlantModel();
+            defaultSeed.setPlant(plantModel);
+        } else {
+            updatePlantModel();
+            defaultSeed.setPlant(plantModel);
         }
+        if (plantModel.getDaoStatus().equals("1")) {
+            new DefaultAlert("Data is saved").show();
+        } else {
+            new DefaultAlert("Data is not saved").show();
+        }
+//        }
         saveSeed();
     }
 
     private void saveCollection() {
-        if (isCollectionInputValid()) {
-            if (isCollectionNew) {
-                saveCollectionModel();
-                defaultSeed.setCollection(collectionModel);
+//        if (isCollectionInputValid()) {
+        if (isCollectionNew) {
+            saveCollectionModel();
+            defaultSeed.setCollection(collectionModel);
 //                seedModel.setCollectionId(collectionModel.getId());
-            } else {
-                updateCollectionModel();
-                defaultSeed.setCollection(collectionModel);
-            }
-            if (collectionModel.getDaoStatus().equals("1")) {
-                new DefaultAlert("Data is saved").show();
-            } else {
-                new DefaultAlert("Data is not saved").show();
-            }
+        } else {
+            updateCollectionModel();
+            defaultSeed.setCollection(collectionModel);
         }
+        if (collectionModel.getDaoStatus().equals("1")) {
+            new DefaultAlert("Data is saved").show();
+        } else {
+            new DefaultAlert("Data is not saved").show();
+        }
+//        }
         saveSeed();
     }
 
@@ -1401,40 +1384,40 @@ public class MainController implements Initializable {
     }
 
     private void saveSampling() {
-        if (isSamplingInputValid()) {
-            if (isSamplingNew) {
-                saveSamplingModel();
-                defaultSeed.setSampling(samplingModel);
-            } else {
-                updateSamplingModel();
-                defaultSeed.setSampling(samplingModel);
-            }
-
-            if (samplingModel.getDaoStatus().equals("1")) {
-                new DefaultAlert("Data is saved").show();
-            } else {
-                new DefaultAlert("Data is not saved").show();
-            }
+//        if (isSamplingInputValid()) {
+        if (isSamplingNew) {
+            saveSamplingModel();
+            defaultSeed.setSampling(samplingModel);
+        } else {
+            updateSamplingModel();
+            defaultSeed.setSampling(samplingModel);
         }
+
+        if (samplingModel.getDaoStatus().equals("1")) {
+            new DefaultAlert("Data is saved").show();
+        } else {
+            new DefaultAlert("Data is not saved").show();
+        }
+//        }
         saveSeed();
     }
 
     private void saveHerbarium() {
-        if (isHerbariumInputValid()) {
-            if (isHerbariumNew) {
-                saveHerbariumModel();
-                defaultSeed.setHerbarium(herbariumModel);
-            } else {
-                updateHerbariumModel();
-                defaultSeed.setHerbarium(herbariumModel);
-            }
-
-            if (herbariumModel.getDaoStatus().equals("1")) {
-                new DefaultAlert("Data is saved").show();
-            } else {
-                new DefaultAlert("Data is not saved").show();
-            }
+//        if (isHerbariumInputValid()) {
+        if (isHerbariumNew) {
+            saveHerbariumModel();
+            defaultSeed.setHerbarium(herbariumModel);
+        } else {
+            updateHerbariumModel();
+            defaultSeed.setHerbarium(herbariumModel);
         }
+
+        if (herbariumModel.getDaoStatus().equals("1")) {
+            new DefaultAlert("Data is saved").show();
+        } else {
+            new DefaultAlert("Data is not saved").show();
+        }
+//        }
         saveSeed();
     }
 
@@ -1521,24 +1504,20 @@ public class MainController implements Initializable {
         );
 
         daoPlant.save(plantModel);
-        defaultImage.file();
-        defaultImage.setPlantId(plantModel.getId());
-        fileOper.saveFile(defaultImage);
-        try {
-            defaultImage.saveFile();
-        } catch (IOException ex) {
-            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        if (defaultImage != null) {
+            defaultImage.file();
+            defaultImage.setPlantId(plantModel.getId());
+            fileOper.saveFile(defaultImage);
+            try {
+                defaultImage.saveFile();
+            } catch (IOException ex) {
+                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         isPlantNew = false;
     }
 
     private void saveSeed() {
-//        if (seedModel.getId() == null) {
-//            daoSeed.save(seedModel);
-//        } else {
-//            daoSeed.update(seedModel);
-//        }
-
         if (defaultSeed.getId() == null) {
             daoSeed.save(defaultSeed);
         } else {
@@ -1547,7 +1526,7 @@ public class MainController implements Initializable {
     }
 
     private void updatePlantModel() {
-        Number id = plantModel.getId();
+        BigDecimal id = plantModel.getId();
         plantModel = new Plant(id,
                 familyId(),
                 genusId(),
@@ -1572,7 +1551,7 @@ public class MainController implements Initializable {
                 heightTextField.getText()
         );
         daoPlant.update(plantModel);
-        
+
         defaultImage.file();
         defaultImage.setPlantId(plantModel.getId());
         fileOper.updateFile(defaultImage);
@@ -1581,16 +1560,16 @@ public class MainController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         isPlantNew = false;
     }
 
     private void saveCollectionModel() {
         System.out.println("save " + nameField.getText());
         collectionModel = new CollectionDataBase(
-                collectionNumberTextField.getText().trim(),
-                nameField.getText().trim(),
-                accessionTextField.getText().trim(),
+                collectionNumberTextField.getText(),
+                nameField.getText(),
+                accessionTextField.getText(),
                 new DefaultDate(dateCollected.getValue()).toDate(),
                 organizeInstituteId(),
                 wildCultivitedId(),
@@ -1602,18 +1581,25 @@ public class MainController implements Initializable {
     }
 
     private void updateCollectionModel() {
-        Number id = collectionModel.getId();
-        collectionModel = new CollectionDataBase(id,
-                collectionNumberTextField.getText().trim(),
-                nameField.getText().trim(),
-                accessionTextField.getText().trim(),
-                new DefaultDate(dateCollected.getValue()).toDate(),
-                organizeInstituteId(),
-                wildCultivitedId(),
-                collectorInstituteId()
-        );
+        BigDecimal id = collectionModel.getId();
 
-        daoCollection.update(collectionModel);
+        if (id == null) {
+            //save
+            saveCollectionModel();
+        } else {
+
+            collectionModel = new CollectionDataBase(id,
+                    collectionNumberTextField.getText(),
+                    nameField.getText(),
+                    accessionTextField.getText(),
+                    new DefaultDate(dateCollected.getValue()).toDate(),
+                    organizeInstituteId(),
+                    wildCultivitedId(),
+                    collectorInstituteId()
+            );
+            daoCollection.update(collectionModel);
+
+        }
         isCollectionNew = false;
     }
 
@@ -1621,35 +1607,39 @@ public class MainController implements Initializable {
         locationModel = new LocationDataBase(
                 countryId(),
                 stateId(),
-                latitudeTextField.getText().trim(),
-                latMethodTextField.getText().trim(),
-                gridTextField.getText().trim(),
-                altitudeTextField.getText().trim(),
-                descTextField.getText().trim(),
-                longtitudeTextField.getText().trim(),
-                latUnitsTextField.getText().trim(),
-                gpsTextField.getText().trim(),
-                altitudeMethodTextField.getText().trim());
+                latitudeTextField.getText(),
+                latMethodTextField.getText(),
+                gridTextField.getText(),
+                altitudeTextField.getText(),
+                descTextField.getText(),
+                longtitudeTextField.getText(),
+                latUnitsTextField.getText(),
+                gpsTextField.getText(),
+                altitudeMethodTextField.getText());
         daoLocation.save(locationModel);
         isLocationNew = false;
     }
 
     private void updateLocationModel() {
-        Number id = locationModel.getId();
-        locationModel = new LocationDataBase(id,
-                countryId(),
-                stateId(),
-                latitudeTextField.getText().trim(),
-                latMethodTextField.getText().trim(),
-                gridTextField.getText().trim(),
-                altitudeTextField.getText().trim(),
-                descTextField.getText().trim(),
-                longtitudeTextField.getText().trim(),
-                latUnitsTextField.getText().trim(),
-                gpsTextField.getText().trim(),
-                altitudeMethodTextField.getText().trim());
-        daoLocation.update(locationModel);
-        isLocationNew = false;
+        BigDecimal id = locationModel.getId();
+        if (id == null) {
+            saveLocationModel();
+        } else {
+            locationModel = new LocationDataBase(id,
+                    countryId(),
+                    stateId(),
+                    latitudeTextField.getText(),
+                    latMethodTextField.getText(),
+                    gridTextField.getText(),
+                    altitudeTextField.getText(),
+                    descTextField.getText(),
+                    longtitudeTextField.getText(),
+                    latUnitsTextField.getText(),
+                    gpsTextField.getText(),
+                    altitudeMethodTextField.getText());
+            daoLocation.update(locationModel);
+            isLocationNew = false;
+        }
     }
 
     private void saveSamplingModel() {
@@ -1664,16 +1654,19 @@ public class MainController implements Initializable {
     }
 
     private void updateSamplingModel() {
-        Number id = samplingModel.getId();
-        samplingModel = new SamplingDataBase(id,
-                numberSampleTextField.getText(),
-                numberFoodTextField.getText(),
-                areaSampleTextField.getText(),
-                percentageTextField.getText(),
-                noteTextArea.getText());
-        daoSampling.update(samplingModel);
-        isSamplingNew = false;
-
+        BigDecimal id = samplingModel.getId();
+        if (id == null) {
+            saveSamplingModel();
+        } else {
+            samplingModel = new SamplingDataBase(id,
+                    numberSampleTextField.getText(),
+                    numberFoodTextField.getText(),
+                    areaSampleTextField.getText(),
+                    percentageTextField.getText(),
+                    noteTextArea.getText());
+            daoSampling.update(samplingModel);
+            isSamplingNew = false;
+        }
     }
 
     private void saveHerbariumModel() {
@@ -1684,11 +1677,15 @@ public class MainController implements Initializable {
     }
 
     private void updateHerbariumModel() {
-        Number id = herbariumModel.getId();
-        herbariumModel = new HerbariumSpecimenBase(id, herbariumNumberTextField.getText(),
-                locationId(), dublicatedId(), isHerbarium(), voucherTextField.getText());
-        daoHerbarium.update(herbariumModel);
-        isHerbariumNew = false;
+        BigDecimal id = herbariumModel.getId();
+        if (id == null) {
+            saveHerbariumModel();
+        } else {
+            herbariumModel = new HerbariumSpecimenBase(id, herbariumNumberTextField.getText(),
+                    locationId(), dublicatedId(), isHerbarium(), voucherTextField.getText());
+            daoHerbarium.update(herbariumModel);
+            isHerbariumNew = false;
+        }
     }
 
     private void saveHabitatModel() {
@@ -1707,19 +1704,23 @@ public class MainController implements Initializable {
     }
 
     private void updateHabitatModel() {
-        Number id = habitatModel.getId();
-        habitatModel = new HabitatDataBase(id, habitatId(),
-                landFormId(),
-                geologyTextField.getText(),
-                aspectId(),
-                factorAffectId(),
-                soilTypeId(),
-                associatedSpeciesTextField.getText(),
-                slopeId(),
-                landUseId(),
-                siteNotesTextArea.getText());
-        daoHabitat.update(habitatModel);
-        isHabitatNew = false;
+        BigDecimal id = habitatModel.getId();
+        if (id == null) {
+            saveHabitatModel();
+        } else {
+            habitatModel = new HabitatDataBase(id, habitatId(),
+                    landFormId(),
+                    geologyTextField.getText(),
+                    aspectId(),
+                    factorAffectId(),
+                    soilTypeId(),
+                    associatedSpeciesTextField.getText(),
+                    slopeId(),
+                    landUseId(),
+                    siteNotesTextArea.getText());
+            daoHabitat.update(habitatModel);
+            isHabitatNew = false;
+        }
     }
 
     private void saveSeedMorphologyModel() {
@@ -1737,18 +1738,22 @@ public class MainController implements Initializable {
     }
 
     private void updateSeedMorphologyModel() {
-        Number id = morphologyModel.getId();
-        morphologyModel = new SeedMorphology(id,
-                sizeTextField.getText(),
-                fruitTypeId(),
-                slengthTextField.getText(),
-                swidthTextField.getText(),
-                sheightTextField.getText(),
-                dispersalAidsId(),
-                configureTextfield.getText(),
-                typeOfEmbrioId());
-        daoSeedMorphology.update(morphologyModel);
-        isSeedMorphologyNew = false;
+        BigDecimal id = morphologyModel.getId();
+        if (id == null) {
+            saveSeedMorphologyModel();
+        } else {
+            morphologyModel = new SeedMorphology(id,
+                    sizeTextField.getText(),
+                    fruitTypeId(),
+                    slengthTextField.getText(),
+                    swidthTextField.getText(),
+                    sheightTextField.getText(),
+                    dispersalAidsId(),
+                    configureTextfield.getText(),
+                    typeOfEmbrioId());
+            daoSeedMorphology.update(morphologyModel);
+            isSeedMorphologyNew = false;
+        }
     }
 
     private void saveSeedWeightModel() {
@@ -1760,165 +1765,163 @@ public class MainController implements Initializable {
     }
 
     private void updateSeedWeightModel() {
-        Number id = seedWeightModel.getId();
-        seedWeightModel = new SeedWeight(id, weight_1000.getText(),
-                weight_100.getText(), typeWeightId(), fruit_weight.getText(), perfruitTextField.getText());
-        daoSeedMorphology.update(seedWeightModel);
-        isSeedWeightNew = false;
+        BigDecimal id = seedWeightModel.getId();
+        if (id ==null) {
+            saveSeedWeightModel();
+        } else {
+            seedWeightModel = new SeedWeight(id, weight_1000.getText(),
+                    weight_100.getText(), typeWeightId(), fruit_weight.getText(), perfruitTextField.getText());
+            daoSeedMorphology.update(seedWeightModel);
+            isSeedWeightNew = false;
+        }
     }
 
-    private Number familyId() {
+    private BigDecimal familyId() {
         return new DefaultCombo(familyCb).selectedId();
     }
 
-    private Number genusId() {
+    private BigDecimal genusId() {
         return new DefaultCombo(genusCb).selectedId();
     }
 
-    private Number speciesId() {
+    private BigDecimal speciesId() {
         return new DefaultCombo(speciesCb).selectedId();
     }
 
-    private Number speciesAuthorId() {
+    private BigDecimal speciesAuthorId() {
         return new DefaultCombo(speciesAuthorCb).selectedId();
     }
 
-    private Number rankId() {
+    private BigDecimal rankId() {
         return new DefaultCombo(rankCb).selectedId();
     }
 
-    private Number rank2Id() {
+    private BigDecimal rank2Id() {
         return new DefaultCombo(rankCb2).selectedId();
     }
 
-    private Number infraSpeciesId() {
+    private BigDecimal infraSpeciesId() {
         return new DefaultCombo(infraSpeciesCb).selectedId();
     }
 
-    private Number infraSpecies2Id() {
+    private BigDecimal infraSpecies2Id() {
         return new DefaultCombo(infraSpecies2Cb).selectedId();
     }
 
-    private Number infraAuthorId() {
+    private BigDecimal infraAuthorId() {
         return new DefaultCombo(infraAuthorCb).selectedId();
     }
 
-    private Number infraAuthor2Id() {
+    private BigDecimal infraAuthor2Id() {
         return new DefaultCombo(infraAuthor2Cb).selectedId();
     }
 
-    private Number identifationStatusId() {
+    private BigDecimal identifationStatusId() {
         return new DefaultCombo(identificationStatusCb).selectedId();
     }
 
-    private Number identifierInstituteId() {
+    private BigDecimal identifierInstituteId() {
         return new DefaultCombo(identifierInstituteCb).selectedId();
     }
 
-//    private Number plantDescriptionId() {
-//        return new DefaultCombo(plantDescCb).selectedId();
-//    }
-    private Number usesId() {
+ 
+    private BigDecimal usesId() {
         return new DefaultCombo(usesCb).selectedId();
     }
 
-    private Number vernacularNameId() {
+    private BigDecimal vernacularNameId() {
         return new DefaultCombo(vernacularNameCb).selectedId();
     }
 
-    private Number assesInforId() {
+    private BigDecimal assesInforId() {
         return new DefaultCombo(assessmentInformationCb).selectedId();
     }
 
-    private Number otherKeyId() {
+    private BigDecimal otherKeyId() {
         return new DefaultCombo(otherKeyCb).selectedId();
     }
 
-    private Number plantFormId() {
+    private BigDecimal plantFormId() {
         return new DefaultCombo(plantFromCb).selectedId();
     }
 
-    private Number identFromId() {
+    private BigDecimal identFromId() {
         return new DefaultCombo(identifiedFromCb).selectedId();
 
     }
 
-    private Number organizeInstituteId() {
+    private BigDecimal organizeInstituteId() {
         return new DefaultCombo(organisationCb).selectedId();
     }
 
-    private Number wildCultivitedId() {
+    private BigDecimal wildCultivitedId() {
         return new DefaultCombo(wildCb).selectedId();
     }
 
-    private Number collectorInstituteId() {
+    private BigDecimal collectorInstituteId() {
         return new DefaultCombo(collectorCb).selectedId();
     }
 
-    private Number countryId() {
+    private BigDecimal countryId() {
         return new DefaultCombo(countryCb).selectedId();
     }
 
-    private Number stateId() {
+    private BigDecimal stateId() {
         return new DefaultCombo(stateCb).selectedId();
     }
 
-    private Number locationId() {
+    private BigDecimal locationId() {
         return new DefaultCombo(locationCb).selectedId();
     }
 
-    private Number habitatId() {
+    private BigDecimal habitatId() {
         return new DefaultCombo(habitatCb).selectedId();
     }
 
-    private Number landFormId() {
+    private BigDecimal landFormId() {
         return new DefaultCombo(landFormCb).selectedId();
     }
 
-    private Number aspectId() {
+    private BigDecimal aspectId() {
         return new DefaultCombo(aspectCb).selectedId();
     }
 
-    private Number factorAffectId() {
+    private BigDecimal factorAffectId() {
         return new DefaultCombo(factorsCb).selectedId();
     }
 
-    private Number soilTypeId() {
+    private BigDecimal soilTypeId() {
         return new DefaultCombo(soilTypeCb).selectedId();
     }
 
-    private Number slopeId() {
+    private BigDecimal slopeId() {
         return new DefaultCombo(slopeCb).selectedId();
     }
 
-    private Number landUseId() {
+    private BigDecimal landUseId() {
         return new DefaultCombo(landUseCb).selectedId();
     }
 
-    private Number dublicatedId() {
+    private BigDecimal dublicatedId() {
         return new DefaultCombo(dublicatedCb).selectedId();
     }
 
-    private Number fruitTypeId() {
+    private BigDecimal fruitTypeId() {
         return new DefaultCombo(fruitTypeCb).selectedId();
     }
 
-    private Number dispersalAidsId() {
+    private BigDecimal dispersalAidsId() {
         return new DefaultCombo(dispersalAidsCb).selectedId();
     }
 
-    private Number typeOfEmbrioId() {
+    private BigDecimal typeOfEmbrioId() {
         return new DefaultCombo(embrioCb).selectedId();
     }
 
-    private Number typeWeightId() {
+    private BigDecimal typeWeightId() {
         return new DefaultCombo(typeWeightCb).selectedId();
     }
-//
-//     private Number typeWeightId(String selection) {
-//        return typeWeightCb.getSelectionModel().getSelectedIndex();
-//    }
-
+ 
     private boolean isHerbarium() {
         return isHerbarium.isSelected();
     }
@@ -2046,7 +2049,7 @@ public class MainController implements Initializable {
 
     @FXML
     private void upload() {
-        Number imageId = null;    
+        Number imageId = null;
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
 //        fileChooser.showOpenDialog(dialogStage);
@@ -2059,9 +2062,9 @@ public class MainController implements Initializable {
         if (file != null) {
             Image image = new Image(file.toURI().toString());
             seedImage.setImage(image);
-            if(defaultImage!=null){
+            if (defaultImage != null) {
                 imageId = defaultImage.getImageId();
-            }    
+            }
             defaultImage = new DefaultImage(file);
             defaultImage.setImageId(imageId);
         } else {

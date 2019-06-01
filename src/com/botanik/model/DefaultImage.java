@@ -14,12 +14,12 @@ import org.apache.commons.io.FilenameUtils;
  */
 public class DefaultImage {
 
-    private String localFolder = "IMAGES/";    
+    private String localFolder = "IMAGES/";
     private Number imageId;
     private Number plantId;
     private String imageUrl;
     private String imageName;
-    private String local_imge_url; 
+    private String local_imge_url;
     private File file;
     private Path source;
     private Path target;
@@ -30,13 +30,14 @@ public class DefaultImage {
         this.imageUrl = imageUrl;
         this.imageName = imageName;
     }
-    
+
     public DefaultImage(Number id, Number plantId, String imageUrl, String imageName) {
         this.imageId = id;
         this.plantId = plantId;
         this.imageUrl = imageUrl;
         this.imageName = imageName;
     }
+
     public DefaultImage(File sourceFile) {
         this.file = sourceFile;
     }
@@ -55,7 +56,7 @@ public class DefaultImage {
             this.imageName = file.getName();
             String ext = FilenameUtils.getExtension(file.getName());
             this.imageUrl = gen_id + "." + ext;
-            local_imge_url = localFolder + gen_id+"."+ext;
+            local_imge_url = localFolder + gen_id + "." + ext;
             this.source = this.file.toPath();
 
 //            this.target = Paths.get(imageUrl);
@@ -86,31 +87,28 @@ public class DefaultImage {
     }
 
     public void saveFile() throws IOException {
-//        makeFileReady();
         Files.copy(source, target, REPLACE_EXISTING);
     }
 
     public File readFile() {
-//        if((imageUrl!=null) &&(imageName!=null))
-//        File file1 = new File(imageUrl + imageName);
-        if((imageUrl!=null))
-        return new File(imageUrl);
-       return null;
+        if ((imageUrl != null)) {
+            return new File(imageUrl);
+        }
+        return null;
     }
-    
-     public File readLocalFile() {
-        if((imageUrl!=null) &&(imageName!=null))
-//        File file1 = new File(imageUrl + imageName);
-        return new File(""+imageUrl + imageName);
-       return null;
+
+    public File readLocalFile() {
+        if ((imageUrl != null) && (imageName != null)) //        File file1 = new File(imageUrl + imageName);
+        {
+            return new File("" + imageUrl + imageName);
+        }
+        return null;
     }
-    
+
     public File file() {
         makeFileReady();
         return file;
     }
-
-    
 
     public String getImageUrl() {
         return imageUrl;

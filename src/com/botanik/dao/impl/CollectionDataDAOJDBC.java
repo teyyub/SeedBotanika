@@ -9,6 +9,7 @@ import com.botanik.model.Base;
 import com.botanik.model.CollectionDataBase;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -72,7 +73,7 @@ public class CollectionDataDAOJDBC implements CollectionDataDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -132,7 +133,7 @@ public class CollectionDataDAOJDBC implements CollectionDataDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -192,7 +193,7 @@ public class CollectionDataDAOJDBC implements CollectionDataDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                base = new Base(rs.getInt(1), rs.getString(2), rs.getString(3));
+                base = new Base(rs.getBigDecimal(1), rs.getString(2), rs.getString(3));
                 bases.add(base);
             }
 
@@ -224,9 +225,9 @@ public class CollectionDataDAOJDBC implements CollectionDataDAO {
                 model.getProjectName(),
                 model.getAccessionNumber(),                
                 model.getDateCollection(),
-                model.getOrganizeInstituteId(),
-                model.getWildCultivitedId(),
-                model.getCollectorInstituteId(),
+                model.getOrganizeInstituteId().intValue(),
+                model.getWildCultivitedId().intValue(),
+                model.getCollectorInstituteId().intValue(),
                 new Date()
                     
             };
@@ -234,7 +235,7 @@ public class CollectionDataDAOJDBC implements CollectionDataDAO {
             ps.execute();
             rs = ps.getGeneratedKeys();
             int gen_id = rs.next() ? rs.getInt(1) : 0;
-            model.setId(gen_id);
+            model.setId(BigDecimal.valueOf(gen_id));
             model.setDaoStatus("1");
         } catch (SQLException e) {
             model.setDaoStatus("0");
@@ -375,7 +376,7 @@ public class CollectionDataDAOJDBC implements CollectionDataDAO {
             ps.execute();
             rs = ps.getGeneratedKeys();
             int gen_id = rs.next() ? rs.getInt(1) : 0;
-            model.setId(gen_id);
+            model.setId(BigDecimal.valueOf(gen_id));
             model.setDaoStatus("1");
         } catch (SQLException e) {
             model.setDaoStatus("0");

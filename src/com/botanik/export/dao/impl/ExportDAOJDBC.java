@@ -1,7 +1,6 @@
 package com.botanik.export.dao.impl;
 
 import com.botanik.dao.DAOUtil;
-import static com.botanik.dao.DAOUtil.close;
 import static com.botanik.dao.DAOUtil.prepareStatement;
 import com.botanik.export.dao.intf.ExportDAO;
 import com.botanik.export.model.CollectionExport;
@@ -12,11 +11,7 @@ import com.botanik.export.model.HerbariumExport;
 import com.botanik.export.model.LocationExport;
 import com.botanik.export.model.PlantExport;
 import com.botanik.export.model.SamplingExport;
-import com.botanik.model.HerbariumSpecimenBase;
-import com.botanik.model.Plant;
-import com.botanik.model.SamplingDataBase;
-import com.botanik.model.SeedMorphology;
-import com.botanik.model.SeedWeight;
+import com.botanik.logger.Logger;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,15 +19,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author teyyub , 7:49:57 PM
  */
 public class ExportDAOJDBC implements ExportDAO {
-
+    
     private List<CollectionExport> getCollection() {
         PreparedStatement ps = null;
         Connection conn = null;
@@ -51,7 +44,7 @@ public class ExportDAOJDBC implements ExportDAO {
             } catch (IOException | ClassNotFoundException ex) {
                 System.err.println("Exception connection to accessDBConnection()");
             }
-
+            
             ps = prepareStatement(conn, SQL_COLLECTION, values);
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -62,15 +55,15 @@ public class ExportDAOJDBC implements ExportDAO {
                         null);
 //                rs.getString("otherCollName")
                 list.add(ce);
-
+                
             }
         } catch (SQLException ex) {
             System.out.println("Exception in getCollection" + ex);
         }
-
+        
         return list;
     }
-
+    
     private List<PlantExport> getPlant() {
         PreparedStatement ps = null;
         Connection conn = null;
@@ -111,7 +104,7 @@ public class ExportDAOJDBC implements ExportDAO {
                 + "left join combos pl_uses on pl_uses.id = pl.usesid)\n"
                 + "left join combos  pl_ver on pl_ver.id = pl.vernacularNameId)\n"
                 + "left join combos pl_ass on pl_ass.id = pl.assesInforId)";
-
+        
         try {
             try {
                 conn = DAOUtil.accessDBConnection();
@@ -148,19 +141,19 @@ public class ExportDAOJDBC implements ExportDAO {
         } catch (SQLException ex) {
             System.out.println("Exception in getPlant " + ex);
         }
-
+        
         return list;
     }
-
+    
     private List<LocationExport> getLocation() {
-
+        
         PreparedStatement ps = null;
         Connection conn = null;
         ResultSet rs = null;
-
+        
         List<LocationExport> list = new ArrayList();
         Object[] values = {};
-
+        
         String SQL_LOCATION = "select   c.description as country, s.description as state,ld.district, "
                 + "ld.latitude, ld.lat_long_method , ld.grid, ld.altitude,ld.description , ld.longtitude, ld.lat_long_unit, ld.gps, ld.altitude_method\n"
                 + " from  ((seed sd left join location_data ld on sd.location_id = ld.id )\n"
@@ -175,7 +168,7 @@ public class ExportDAOJDBC implements ExportDAO {
             ps = prepareStatement(conn, SQL_LOCATION, values);
             rs = ps.executeQuery();
             while (rs.next()) {
-
+                
                 LocationExport le = new LocationExport(rs.getString("country"),
                         rs.getString("state"), rs.getString("district"), rs.getString("description"),
                         null, null, null, null, null, null, null, null, rs.getString("lat_long_method"),
@@ -193,10 +186,10 @@ public class ExportDAOJDBC implements ExportDAO {
         } catch (SQLException ex) {
             System.out.println("Exception in getLocation " + ex);
         }
-
+        
         return list;
     }
-
+    
     private List<HabitatExport> getHabitat() {
         PreparedStatement ps = null;
         Connection conn = null;
@@ -214,7 +207,7 @@ public class ExportDAOJDBC implements ExportDAO {
                 + "left join combos s on s.id = hd.slope)\n"
                 + "left join combos a on a.id = hd.aspect)\n"
                 + "left join combos st on st.id = hd.soil ";
-
+        
         try {
             try {
                 conn = DAOUtil.accessDBConnection();
@@ -232,24 +225,24 @@ public class ExportDAOJDBC implements ExportDAO {
         } catch (SQLException ex) {
             System.out.println("exception in getHabitat " + ex);
         }
-
+        
         return list;
     }
-
+    
     private List<SamplingExport> getSampling() {
-
+        
         PreparedStatement ps = null;
         Connection conn = null;
         ResultSet rs = null;
         List<SamplingExport> list = new ArrayList();
-
+        
         Object[] values = {};
-
+        
         String SQL_SAMPLE = "select samd.numbersample, samd.numberfood, samd.area, samd.percentage, samd.note\n"
                 + " from  seed sd left join samplingdata samd on sd.sampling_id = samd.id ";
-
+        
         try {
-
+            
             try {
                 conn = DAOUtil.accessDBConnection();
             } catch (IOException | ClassNotFoundException ex) {
@@ -265,22 +258,22 @@ public class ExportDAOJDBC implements ExportDAO {
         } catch (SQLException ex) {
             System.out.println("Exception in getSampling " + ex);
         }
-
+        
         return list;
     }
-
+    
     private List<HerbariumExport> getHerbarium() {
         PreparedStatement ps = null;
         Connection conn = null;
         ResultSet rs = null;
-
+        
         List<HerbariumExport> list = new ArrayList();
         Object[] values = {};
         String SQL_HERBARIUM = " select  hs.number, hs_loc.description as location , iif(hs.isSpecimen,'Yes','No') as specimen, iif(hs.isKew,'Yes', 'No') as sentToKew\n"
                 + " from  (seed sd left join herbariumspecimen hs on sd.herbarium_id = hs.id )\n"
                 + "left join combos hs_loc on hs_loc.id  = hs.location";
         try {
-
+            
             try {
                 conn = DAOUtil.accessDBConnection();
             } catch (IOException | ClassNotFoundException ex) {
@@ -296,12 +289,13 @@ public class ExportDAOJDBC implements ExportDAO {
         } catch (SQLException ex) {
             System.out.println("exception in getHerbarium " + ex);
         }
-
+        
         return list;
     }
-
+    
     @Override
     public List<ExportModel> getExportModel() {
+        Logger.save("called getExportModel in dao");
         PreparedStatement ps = null;
         Connection conn = null;
         ResultSet rs = null;
@@ -369,13 +363,14 @@ public class ExportDAOJDBC implements ExportDAO {
                 + "  left join (select  sd.id , hs.number, hs_loc.description as location , iif(hs.isSpecimen,'Yes','No') as specimen, iif(hs.isKew,'Yes', 'No') as sentToKew \n"
                 + "  from  (seed sd left join herbariumspecimen hs on sd.herbarium_id = hs.id ) \n"
                 + "  left join combos hs_loc on hs_loc.id  = hs.location) query6 on query1.id = query6.id";
-
+        
         try {
-
+            
             try {
                 conn = DAOUtil.accessDBConnection();
             } catch (IOException | ClassNotFoundException ex) {
                 System.err.println("Exception connection to accessDBConnection()");
+                Logger.save("Exception connection to accessDBConnection()");
             }
             ps = prepareStatement(conn, SQL_TEXT, values);
             rs = ps.executeQuery();
@@ -417,27 +412,28 @@ public class ExportDAOJDBC implements ExportDAO {
                 HabitatExport he = new HabitatExport(rs.getString("habitat"),
                         rs.getString("associated"), rs.getString("factor"), rs.getString("landForm"), rs.getString("landUse"),
                         rs.getString("geology"), rs.getString("slope"), rs.getString("aspect"), rs.getString("soilType"), rs.getString("site_Notes"));
-
+                
                 SamplingExport se = new SamplingExport(rs.getString("numbersample"), rs.getString("numberfood"), rs.getString("area"),
                         rs.getString("percentage"), rs.getString("note"));
-
+                
                 HerbariumExport hre = new HerbariumExport(rs.getString("specimen"), rs.getString("number"), rs.getString("sentToKew"),
                         rs.getString("location"));
-
+                
                 ExportModel em = new ExportModel(ce, pe, le, he, se, hre);
                 model.add(em);
             }
         } catch (SQLException ex) {
             System.out.println("exception in getExportModel " + ex);
+            Logger.save("exception in getExportModel " + ex.getMessage());
         }
-
+        
         return model;
     }
-
+    
     @Override
     public ExportListModel getExportListModel() {
         ExportListModel exportModel = new ExportListModel(getCollection(), getPlant(), getLocation(), getHabitat(), getSampling(), getHerbarium());
         return exportModel;
     }
-
+    
 }

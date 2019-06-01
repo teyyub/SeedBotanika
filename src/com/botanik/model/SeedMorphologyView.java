@@ -1,5 +1,7 @@
 package com.botanik.model;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author USER
@@ -31,7 +33,7 @@ public class SeedMorphologyView extends Base {
         this.embrio = embrio;
     }
 
-    public SeedMorphologyView(Number id, String size, String type, String length, String width, 
+    public SeedMorphologyView(BigDecimal id, String size, String type, String length, String width, 
             String height, String aid, String configuration, String embrio) {
         super(id);
         this.size = size;

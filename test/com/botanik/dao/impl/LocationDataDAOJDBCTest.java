@@ -1,6 +1,7 @@
 package com.botanik.dao.impl;
 
 import com.botanik.model.LocationDataBase;
+import java.math.BigDecimal;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -44,7 +45,7 @@ public class LocationDataDAOJDBCTest {
     @Test
     public void testSave() {
         System.out.println("save");
-        LocationDataBase model = new LocationDataBase(Long.valueOf("1"), Long.valueOf("1"),
+        LocationDataBase model = new LocationDataBase(BigDecimal.valueOf(1), BigDecimal.valueOf(1),
                 "latitude", "latMethod", "grid", "altitude",
                 "description", "longtitude", "latUnits", "gps", "altitudeMethod");
 
